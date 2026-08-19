@@ -28,7 +28,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: #0f172a;
     color: var(--text);
-    padding: 20px;
+    padding: 18px 24px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -39,31 +39,60 @@
     border: 1px solid #334155;
     border-radius: 12px;
     color: white;
-    padding: 16px 24px;
+    padding: 14px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
-  .header h1 { font-size: 20px; font-weight: 800; }
-  .header p { font-size: 13px; opacity: 0.8; }
-  .flight-badges { display: flex; gap: 8px; flex-wrap: wrap; }
-  .badge {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 4px 10px;
-    border-radius: 14px;
-    font-size: 12px;
+  .header-left h1 { font-size: 19px; font-weight: 800; }
+  .header-left p { font-size: 12.5px; opacity: 0.8; margin-top: 2px; }
+  .members-pill {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin-left: 8px;
   }
 
+  /* 頁籤控制項 (Tabs) */
+  .nav-tabs { display: flex; gap: 10px; }
+  .tab-btn {
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .tab-panel {
+    flex-grow: 1;
+    overflow: hidden;
+    display: none;
+  }
+  .tab-panel.active { display: flex; }
+
+  /* 橫向 9 欄看板 */
   .board-container {
     display: flex;
     gap: 16px;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 12px;
-    flex-grow: 1;
+    padding-bottom: 10px;
+    width: 100%;
   }
   .board-container::-webkit-scrollbar { height: 10px; }
   .board-container::-webkit-scrollbar-track { background: #1e293b; border-radius: 8px; }
@@ -110,14 +139,12 @@
     font-size: 12.5px;
     line-height: 1.45;
   }
-  .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-  }
+  .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
   .time-badge { font-weight: 800; color: var(--primary); font-size: 12px; }
   .card-tag { font-size: 10.5px; font-weight: 600; padding: 1px 6px; border-radius: 4px; }
+  .tag-member { background: #e0e7ff; color: #3730a3; padding: 1px 6px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .price-tag { background: #fef3c7; color: #b45309; padding: 1px 5px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-left: 3px; }
+  .meal-tag { background: #ecfdf5; color: #065f46; padding: 1px 5px; border-radius: 4px; font-size: 11px; font-weight: 700; }
   .tag-drive { background: var(--tag-drive-bg); color: var(--tag-drive-text); }
   .tag-flight { background: var(--tag-flight-bg); color: var(--tag-flight-text); }
   .tag-balloon { background: var(--tag-balloon-bg); color: var(--tag-balloon-text); }
@@ -131,7 +158,6 @@
     border-radius: 4px;
     border-left: 2.5px solid #94a3b8;
   }
-
   .column-footer {
     background: #e2e8f0;
     padding: 10px 14px;
@@ -140,344 +166,491 @@
     font-weight: 600;
     color: var(--tag-stay-text);
   }
+
+  /* 航班分頁（桌面寬版表格） */
+  .flight-table-wrapper {
+    background: var(--card-bg);
+    border-radius: 14px;
+    width: 100%;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    text-align: left;
+  }
+  thead th {
+    background: #0f172a;
+    color: #f8fafc;
+    font-weight: 700;
+    padding: 14px 18px;
+    border-bottom: 2px solid #334155;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  tbody td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tbody tr:hover { background-color: #f8fafc; }
 </style>
 </head>
 <body>
 
   <div class="header">
-    <div>
+    <div class="header-left">
       <h1>🇹🇷 土耳其 9 天 8 夜經典自駕日程表（橫向版）</h1>
-      <p>2026/09/19 (六) – 2026/09/27 (日) ｜ 全員 4 位同行 ｜ 橫向滑動查看每日行程</p>
+      <p>2026/09/19 (六) – 2026/09/27 (日) <span class="members-pill">👥 第一組（文、栗）｜ 第二組（昌、閔）</span></p>
     </div>
-    <div class="flight-badges">
-      <span class="badge">🛫 9/19 TK165 (05:15) / TK171 (15:20) 抵 IST</span>
-      <span class="badge">✈️ 9/21 PC2746 (SAW 23:55 ➔ ASR 01:15+1)</span>
-      <span class="badge">✈️ 9/27 TK2313 (ADB 10:40 ➔ IST 12:00)</span>
-      <span class="badge">🛬 9/27 TK124 (IST 15:55 ➔ TPE 08:10+1)</span>
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="switchDeskTab('board')">🗓️ 橫向 9 欄行程看板</button>
+      <button class="tab-btn" onclick="switchDeskTab('flights')">✈️ 全部航班總表</button>
     </div>
   </div>
 
-  <div class="board-container">
+  <!-- TAB 1: 橫向 9 欄看板 -->
+  <div id="desk-tab-board" class="tab-panel active">
+    <div class="board-container">
 
-    <!-- Day 1 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 1 ｜ 9/19 (六) <span>雙組接軌</span></div>
-        <div class="day-subtitle">土耳其浴＆Outlet ➔ 伊斯坦堡會合</div>
+      <!-- Day 1 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 1 ｜ 9/19 (六) <span>雙組接軌</span></div>
+          <div class="day-subtitle">第一組先入市區 ➔ 舊城飯店會合</div>
+        </div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">05:15 - 07:30</span><span class="tag-member">文、栗</span></div>
+            <div class="card-desc"><strong>第一組抵達 IST（TK165）</strong> ➔ 專車直奔舊城區飯店寄存行李梳洗 🚗 50分</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">08:30 - 11:30</span><span class="tag-member">文、栗</span></div>
+            <div class="card-desc">體驗百年傳統土耳其浴（Hamam）徹底放鬆 ♨️ 舊城廣場漫步</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">11:30 - 13:00</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc"><span class="tag-member">文、栗</span>於舊城區特色餐廳享用土耳其料理與紅茶（1.5 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">13:00 - 15:20</span><span class="tag-member">文、栗</span></div>
+            <div class="card-desc">舊城古蹟散步、方尖碑巡禮、品嚐土耳其甜點冰淇淋</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">15:20 - 17:30</span><span class="tag-member">昌、閔</span></div>
+            <div class="card-desc"><strong>第二組抵達 IST（TK171）</strong> ➔ 專車直達舊城飯店 🚗 50分</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">17:30 - 18:00</span><span class="tag-flight">全員會合</span></div>
+            <div class="card-desc"><strong>於舊城飯店大廳正式會合 🤝</strong> 辦理入住</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">18:00 - 19:30</span><span class="card-tag">夜景漫步</span></div>
+            <div class="card-desc">蘇丹艾哈邁德廣場漫步，欣賞藍色清真寺與聖索菲亞大教堂夜景</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">19:30 - 21:30</span><span class="meal-tag">🍽️ 晚宴預留</span></div>
+            <div class="card-desc">享用道地土耳其烤肉晚宴（Testi Kebab / Köfte）（2 小時）</div>
+          </div>
+        </div>
+        <div class="column-footer">🏨 宿：伊斯坦堡舊城區星級飯店</div>
       </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">05:15</span><span class="card-tag tag-flight">航班入境</span></div>
-          <div class="card-desc"><strong>第一組抵達 IST（TK165，HAN 22:55起飛）</strong>：入境、寄存大件行李，前往周邊體驗傳統土耳其浴（Hamam）放鬆 ♨️</div>
-          <div class="card-meta">接駁：機場周邊計程車</div>
+
+      <!-- Day 2 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 2 ｜ 9/20 (日) <span>經典古蹟</span></div>
+          <div class="day-subtitle">舊城三大古蹟巡禮 ＋ 海峽夕陽遊船</div>
         </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">11:30 - 15:00</span><span class="card-tag">商場採買</span></div>
-          <div class="card-desc"><strong>第一組前往 Venezia Mega Outlet</strong>：逛街採買在地服飾與享用午餐</div>
-          <div class="card-meta">🚗 車程約 25 分 (28 km)</div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">08:30 - 10:30</span><span class="price-tag">€25</span></div>
+            <div class="card-desc">參觀<strong>聖索菲亞大教堂（Hagia Sophia）</strong>千年穹頂建築</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">10:30 - 12:00</span><span class="price-tag">免費</span></div>
+            <div class="card-desc">參觀<strong>藍色清真寺（Blue Mosque）</strong>與古羅馬賽馬場遺跡</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">12:00 - 13:30</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc">於舊城區特色景觀餐廳享用土耳其午餐（1.5 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">13:30 - 15:30</span><span class="price-tag">1,950 TL</span></div>
+            <div class="card-desc">探索<strong>地下水宮殿（Basilica Cistern）</strong>與梅杜莎石柱</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">15:30 - 18:30</span><span class="price-tag">約 €10-15</span></div>
+            <div class="card-desc">搭乘<strong>博斯普魯斯海峽遊船</strong>欣賞歐亞兩岸夕陽晚霞</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">18:30 - 21:00</span><span class="meal-tag">🍽️ 晚餐預留</span></div>
+            <div class="card-desc">加拉太大橋漫步，享用現煎沙丁魚堡與海鮮晚宴（2.5 小時）</div>
+          </div>
         </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">15:20</span><span class="card-tag tag-flight">航班入境</span></div>
-          <div class="card-desc"><strong>第二組抵達 IST（TK171，HKG 08:55起飛）</strong>：辦理入境查驗與提領行李</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">16:30 - 17:30</span><span class="card-tag tag-drive">專車會合</span></div>
-          <div class="card-desc"><strong>四人全員於機場大廳會合 🤝</strong>：專車前往舊城區飯店辦理入住</div>
-          <div class="card-meta">🚗 車程約 50–60 分 (45 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">17:30 - 19:30</span><span class="card-tag">夜景漫步</span></div>
-          <div class="card-desc">蘇丹艾哈邁德廣場漫步，欣賞藍色清真寺夜景</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">19:30 - 21:30</span><span class="card-tag">迎賓晚宴</span></div>
-          <div class="card-desc">享用土耳其烤肉晚宴（Testi Kebab / Köfte），回飯店休息調時差</div>
-        </div>
+        <div class="column-footer">🏨 宿：伊斯坦堡舊城區星級飯店</div>
       </div>
-      <div class="column-footer">🏨 宿：伊斯坦堡舊城區星級飯店</div>
+
+      <!-- Day 3 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 3 ｜ 9/21 (一) <span>PC2746 飛卡帕</span></div>
+          <div class="day-subtitle">托普卡匹皇宮 ➔ 加拉太塔 ➔ 晚班機</div>
+        </div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">08:30 - 11:30</span><span class="price-tag">2,750 TL</span></div>
+            <div class="card-desc">參觀<strong>托普卡匹皇宮（Topkapi Palace）</strong>（含後宮與珍寶館）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">11:30 - 13:00</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc">新城區傳統餐館享用精緻土耳其料理（1.5 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">13:00 - 15:30</span><span class="price-tag">€30</span></div>
+            <div class="card-desc">登<strong>加拉太塔（Galata Tower）</strong>俯瞰海峽 ➔ 埃及香料市場</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">15:30 - 18:30</span><span class="card-tag">巴扎購物</span></div>
+            <div class="card-desc">漫步<strong>大巴扎</strong>採買伴手禮，走訪獨立大道搭復古路面電車</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">18:30 - 20:00</span><span class="meal-tag">🍽️ 晚餐預留</span></div>
+            <div class="card-desc">享用伊斯坦堡告別晚餐，回飯店提取行李（1.5 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">20:00 - 21:15</span><span class="tag-drive">專車接送</span></div>
+            <div class="card-desc">專車前往薩比哈·格克琴機場（SAW） 🚗 50-60分 (48 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">23:55 - 01:15(+1)</span><span class="tag-flight">PC2746</span></div>
+            <div class="card-desc"><strong>搭乘 PC2746（SAW ✈️ ASR）</strong> 直飛開塞利機場（A321）</div>
+          </div>
+        </div>
+        <div class="column-footer">✈️ 深夜抵達開塞利（ASR）</div>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 4 ｜ 9/22 (二) <span>熱氣球窗口 1</span></div>
+          <div class="day-subtitle">卡帕取車 ➔ 露天博物館 ➔ 奇岩全景</div>
+        </div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">01:15 - 03:00</span><span class="tag-drive">取車入住</span></div>
+            <div class="card-desc">ASR 取車 ➔ 自駕前往哥雷目洞穴飯店補眠 🚗 60分 (75 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">05:00 - 08:30</span><span class="tag-balloon">熱氣球 1</span></div>
+            <div class="card-desc"><strong>熱氣球【窗口 1】</strong>（或露台看球、補眠至自然醒）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">09:30 - 12:30</span><span class="price-tag">€20</span></div>
+            <div class="card-desc">參觀<strong>哥雷目露天博物館</strong>千年洞穴教堂壁畫 🚗 2 km</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">12:30 - 14:00</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc">特色洞穴餐廳享用土耳其燒烤料理（1.5 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">14:00 - 17:30</span><span class="price-tag">€12</span></div>
+            <div class="card-desc">烏奇沙城堡、帕夏貝蘑菇谷、駱駝岩拍攝 🚗 15 km</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">17:30 - 19:30</span><span class="card-tag">夕陽美景</span></div>
+            <div class="card-desc">Sunset Point 賞日落 ➔ 俯瞰哥雷目奇岩全景</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">19:30 - 21:30</span><span class="meal-tag">🍽️ 晚餐預留</span></div>
+            <div class="card-desc">享用道地火焰瓦罐燉牛肉（Testi Kebab）（2 小時）</div>
+          </div>
+        </div>
+        <div class="column-footer">🏨 宿：卡帕多奇亞特色洞穴飯店</div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 5 ｜ 9/23 (三) <span>熱氣球窗口 2</span></div>
+          <div class="day-subtitle">熱氣球 ＋ 綠線地下城 ＋ 陶藝小鎮</div>
+        </div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">05:00 - 08:30</span><span class="tag-balloon">熱氣球 2</span></div>
+            <div class="card-desc"><strong>清晨熱氣球升空體驗 🎈【飛行窗口 2】</strong>：日出峽谷飛行、香檳慶祝</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">08:30 - 10:00</span><span class="card-tag">休整</span></div>
+            <div class="card-desc">飯店享用豐盛早餐與短暫補眠休整</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">10:00 - 12:30</span><span class="price-tag">€13</span></div>
+            <div class="card-desc"><strong>凱馬克利地下城（Kaymakli）</strong> 深入地下 8 層 🚗 25 km</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">12:30 - 14:30</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc">伊赫拉拉峽谷（Ihlara）河畔水上涼亭午餐（2 小時） 🚗 55 km</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">14:30 - 17:00</span><span class="price-tag">€15</span></div>
+            <div class="card-desc">漫步<strong>伊赫拉拉綠意峽谷</strong>、塞利梅修道院 🚗 15 km</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">17:00 - 19:30</span><span class="card-tag">陶藝體驗</span></div>
+            <div class="card-desc">阿瓦諾斯陶藝小鎮拉胚體驗與河畔漫步 🚗 20 km</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">19:30 - 21:30</span><span class="meal-tag">🍽️ 晚餐預留</span></div>
+            <div class="card-desc">享用晚餐並整理行李準備次日西行（2 小時）</div>
+          </div>
+        </div>
+        <div class="column-footer">🏨 宿：卡帕多奇亞特色洞穴飯店</div>
+      </div>
+
+      <!-- Day 6 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 6 ｜ 9/24 (四) <span>熱氣球窗口 3</span></div>
+          <div class="day-subtitle">熱氣球候補 ➔ 絲路古驛站 ➔ 古都孔亞</div>
+        </div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">05:00 - 08:30</span><span class="tag-balloon">熱氣球 3</span></div>
+            <div class="card-desc"><strong>熱氣球【候補窗口 3】</strong>（若前兩日已飛則露台看球）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">09:30 - 11:30</span><span class="tag-drive">自駕第 1 段</span></div>
+            <div class="card-desc"><strong>哥雷目 ➔ 蘇丹哈尼</strong>：沿 D300 高原西行 🚗 1.5–2 小時 (150 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">11:30 - 13:00</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc"><strong>中繼站：蘇丹哈尼古驛站</strong> <span class="price-tag">150 TL</span> 參觀並午餐（1.5 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">13:00 - 14:30</span><span class="tag-drive">自駕第 2 段</span></div>
+            <div class="card-desc"><strong>蘇丹哈尼 ➔ 古都孔亞</strong> 🚗 1.5 小時 (110 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">14:30 - 17:00</span><span class="card-tag">市區漫步</span></div>
+            <div class="card-desc">飯店入住，漫步阿拉丁丘陵公園與古城老街</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">17:00 - 19:00</span><span class="price-tag">免費</span></div>
+            <div class="card-desc">參觀<strong>梅夫拉那清真寺</strong>（蘇菲旋轉舞發源地）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">19:00 - 21:00</span><span class="meal-tag">🍽️ 晚餐預留</span></div>
+            <div class="card-desc">享用孔亞特產烤薄餅（Etli Ekmek / Pide）（2 小時）</div>
+          </div>
+        </div>
+        <div class="column-footer">🏨 宿：孔亞星級飯店（全日自駕 260 km）</div>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 7 ｜ 9/25 (五) <span>湖區放鬆</span></div>
+          <div class="day-subtitle">孔亞 ➔ 埃爾迪爾湖 ➔ 溶洞 ➔ 棉花堡</div>
+        </div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">08:30 - 10:30</span><span class="tag-drive">自駕第 1 段</span></div>
+            <div class="card-desc"><strong>孔亞 ➔ 埃爾迪爾湖</strong> 湖區景觀道路 🚗 2 小時 (170 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">10:30 - 12:30</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc"><strong>中繼站 1：埃爾迪爾湖畔</strong> 享用湖畔午餐、漫步綠島（2 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">12:30 - 14:00</span><span class="tag-drive">自駕第 2 段</span></div>
+            <div class="card-desc"><strong>埃爾迪爾湖 ➔ 卡卡利克溶洞</strong> 🚗 1.5 小時 (130 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">14:00 - 14:50</span><span class="price-tag">80 TL</span></div>
+            <div class="card-desc"><strong>中繼站 2：卡卡利克地下棉花堡</strong> 參觀地下石灰華瀑布</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">14:50 - 15:30</span><span class="tag-drive">自駕第 3 段</span></div>
+            <div class="card-desc"><strong>卡卡利克 ➔ 棉花堡飯店</strong> 🚗 35 分 (30 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">15:30 - 19:00</span><span class="price-tag">€30</span></div>
+            <div class="card-desc">漫步<strong>棉花堡白色石灰棚梯田</strong>賞夕陽與古羅馬遺跡</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">19:00 - 21:30</span><span class="meal-tag">🍽️ 晚宴預留</span></div>
+            <div class="card-desc">享用飯店豐盛晚餐，享受天然溫泉水療（2.5 小時）</div>
+          </div>
+        </div>
+        <div class="column-footer">🏨 宿：棉花堡溫泉度假飯店（日自駕 330km）</div>
+      </div>
+
+      <!-- Day 8 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 8 ｜ 9/26 (六) <span>雙世界遺產</span></div>
+          <div class="day-subtitle">棉花堡 ➔ 以弗所古城 ➔ 愛琴海伊茲米爾</div>
+        </div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">08:30 - 11:00</span><span class="tag-drive">自駕第 1 段</span></div>
+            <div class="card-desc"><strong>棉花堡 ➔ 以弗所古城</strong> 🚗 2.5 小時 (185 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">11:00 - 14:30</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc">深度參觀<strong>以弗所古城</strong> <span class="price-tag">€40</span> ＋ 周邊午餐（3.5 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">14:30 - 16:00</span><span class="tag-drive">自駕第 2 段</span></div>
+            <div class="card-desc"><strong>以弗所 ➔ 愛琴海伊茲米爾</strong> 🚗 1 小時 15 分 (80 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">16:00 - 19:00</span><span class="card-tag">海濱漫步</span></div>
+            <div class="card-desc">飯店入住，愛琴海濱海步道漫步看夕陽、參觀鐘樓廣場</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">19:00 - 21:30</span><span class="meal-tag">🍽️ 晚宴預留</span></div>
+            <div class="card-desc">享用愛琴海新鮮現烤海鮮告別晚宴，整理全部行李（2.5 小時）</div>
+          </div>
+        </div>
+        <div class="column-footer">🏨 宿：伊茲米爾海濱景觀飯店（日自駕 265km）</div>
+      </div>
+
+      <!-- Day 9 -->
+      <div class="day-column">
+        <div class="column-header">
+          <div class="day-title">Day 9 ｜ 9/27 (日) <span>圓滿賦歸</span></div>
+          <div class="day-subtitle">還車 ✈️ 飛返IST轉機 ➔ TK124直飛返台</div>
+        </div>
+        <div class="column-body">
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">07:30 - 08:30</span><span class="card-tag">早餐退房</span></div>
+            <div class="card-desc">享用飯店早餐、退房並提領行李出發</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">08:30 - 09:15</span><span class="tag-drive">機場還車</span></div>
+            <div class="card-desc"><strong>自駕前往 ADB 機場</strong> 加油辦理還車手續 ⛽ 🚗 35 分 (20 km)</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">09:15 - 10:40</span><span class="tag-flight">貴賓室</span></div>
+            <div class="card-desc">國內線報到托運，銀卡會員享用 ADB 貴賓室休憩</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">10:40 - 12:00</span><span class="tag-flight">TK2313</span></div>
+            <div class="card-desc"><strong>搭乘 TK2313（ADB ✈️ IST）</strong>（B777 / 1h 20m 飛抵伊斯坦堡）[cite: 1]</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">12:00 - 15:55</span><span class="meal-tag">🍽️ 機場午餐</span></div>
+            <div class="card-desc">IST 機場轉機、退稅、享用午餐與免稅店採買（充裕 3h 55m）[cite: 1]</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">15:55 - 08:10(+1)</span><span class="tag-flight">TK124 直飛</span></div>
+            <div class="card-desc"><strong>搭乘 TK124 正式起飛直飛返台 ✈️</strong>（9/28 08:10 抵達桃園）</div>
+          </div>
+        </div>
+        <div class="column-footer">✈️ 機上航程（9/28 08:10 抵達台灣）</div>
+      </div>
+
     </div>
-
-    <!-- Day 2 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 2 ｜ 9/20 (日) <span>經典古蹟</span></div>
-        <div class="day-subtitle">舊城三大古蹟巡禮 ＋ 海峽夕陽遊船</div>
-      </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">08:30 - 10:30</span><span class="card-tag">世界遺產</span></div>
-          <div class="card-desc">參觀<strong>聖索菲亞大教堂（Hagia Sophia）</strong>千年穹頂建築</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">10:30 - 12:00</span><span class="card-tag">古蹟巡禮</span></div>
-          <div class="card-desc">參觀<strong>藍色清真寺（Blue Mosque）</strong>與古羅馬賽馬場遺跡</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">12:00 - 13:30</span><span class="card-tag">美食</span></div>
-          <div class="card-desc">午餐：於舊城區特色景觀餐廳享用土耳其料理</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">13:30 - 15:30</span><span class="card-tag">神秘遺跡</span></div>
-          <div class="card-desc">探索<strong>地下水宮殿（Basilica Cistern）</strong>與梅杜莎石柱</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">15:30 - 18:30</span><span class="card-tag">海峽遊船</span></div>
-          <div class="card-desc">搭乘<strong>博斯普魯斯海峽遊船</strong>欣賞歐亞兩岸夕陽晚霞</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">18:30 - 21:00</span><span class="card-tag">海鮮晚餐</span></div>
-          <div class="card-desc">加拉太大橋漫步，享用現煎沙丁魚堡（Balık Ekmek）與海鮮晚餐</div>
-        </div>
-      </div>
-      <div class="column-footer">🏨 宿：伊斯坦堡舊城區星級飯店</div>
-    </div>
-
-    <!-- Day 3 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 3 ｜ 9/21 (一) <span>PC2746 飛卡帕</span></div>
-        <div class="day-subtitle">雙皇宮 ➔ 大巴扎 ➔ 晚班機飛抵卡帕</div>
-      </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">08:30 - 11:30</span><span class="card-tag">帝國皇宮</span></div>
-          <div class="card-desc">參觀<strong>托普卡匹皇宮（Topkapi Palace）</strong>（後宮與珍寶館）</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">11:30 - 13:00</span><span class="card-tag">美食</span></div>
-          <div class="card-desc">午餐：新城區傳統餐館享用精緻土耳其料理</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">13:00 - 15:30</span><span class="card-tag">奢華新宮</span></div>
-          <div class="card-desc">參觀<strong>多爾瑪巴切宮（Dolmabahçe Palace）</strong>水晶新皇宮 🚗 5 km</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">15:30 - 18:30</span><span class="card-tag">巴扎購物</span></div>
-          <div class="card-desc">漫步<strong>大巴扎</strong>與香料市場採買伴手禮，獨立大道搭叮叮車</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">18:30 - 20:00</span><span class="card-tag">晚餐</span></div>
-          <div class="card-desc">享用伊斯坦堡告別晚餐，回飯店提取行李</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">20:00 - 21:15</span><span class="card-tag tag-drive">前往SAW機場</span></div>
-          <div class="card-desc">專車前往薩比哈·格克琴機場（SAW） 🚗 50-60分 (48 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">23:55 - 01:15(+1)</span><span class="card-tag tag-flight">PC2746</span></div>
-          <div class="card-desc"><strong>搭乘 PC2746（SAW ✈️ ASR）</strong> 直飛開塞利機場（A321）</div>
-        </div>
-      </div>
-      <div class="column-footer">✈️ 深夜抵達開塞利（ASR）</div>
-    </div>
-
-    <!-- Day 4 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 4 ｜ 9/22 (二) <span>熱氣球窗口 1</span></div>
-        <div class="day-subtitle">卡帕取車 ➔ 露天博物館 ➔ 奇岩全景</div>
-      </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">01:15 - 03:00</span><span class="card-tag tag-drive">機場取車入住</span></div>
-          <div class="card-desc">ASR 取車 ➔ 自駕前往哥雷目洞穴飯店補眠 🚗 60分 (75 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">05:00 - 08:30</span><span class="card-tag tag-balloon">熱氣球窗口 1</span></div>
-          <div class="card-desc"><strong>熱氣球【窗口 1】</strong>（或露台看球、補眠至自然醒）</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">09:30 - 12:30</span><span class="card-tag">紅線世界遺產</span></div>
-          <div class="card-desc">參觀<strong>哥雷目露天博物館</strong>千年洞穴教堂壁畫 🚗 2 km</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">12:30 - 14:00</span><span class="card-tag">美食</span></div>
-          <div class="card-desc">午餐：特色洞穴餐廳享用土耳其燒烤料理</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">14:00 - 17:30</span><span class="card-tag tag-drive">奇岩巡禮</span></div>
-          <div class="card-desc">烏奇沙城堡、帕夏貝蘑菇谷、駱駝岩拍攝 🚗 15 km</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">17:30 - 21:30</span><span class="card-tag">夕陽與晚宴</span></div>
-          <div class="card-desc">Sunset Point 賞日落 ➔ 享用道地火焰瓦罐燉牛肉</div>
-        </div>
-      </div>
-      <div class="column-footer">🏨 宿：卡帕多奇亞特色洞穴飯店</div>
-    </div>
-
-    <!-- Day 5 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 5 ｜ 9/23 (三) <span>熱氣球窗口 2</span></div>
-        <div class="day-subtitle">熱氣球 ＋ 綠線地下城 ＋ 陶藝小鎮</div>
-      </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">05:00 - 08:30</span><span class="card-tag tag-balloon">熱氣球窗口 2</span></div>
-          <div class="card-desc"><strong>清晨熱氣球升空體驗 🎈【飛行窗口 2】</strong>：日出峽谷飛行、開香檳慶祝</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">08:30 - 10:00</span><span class="card-tag">休整</span></div>
-          <div class="card-desc">飯店享用早餐與短暫補眠休整</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">10:00 - 12:30</span><span class="card-tag tag-drive">綠線地下城</span></div>
-          <div class="card-desc"><strong>凱馬克利地下城（Kaymakli）</strong> 深入地下 8 層 🚗 30分 (25 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">12:30 - 14:30</span><span class="card-tag">水上午餐</span></div>
-          <div class="card-desc">伊赫拉拉峽谷河畔水上涼亭午餐 🚗 45分 (55 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">14:30 - 17:00</span><span class="card-tag">峽谷健行</span></div>
-          <div class="card-desc">漫步峽谷、塞利梅修道院、鴿子谷 🚗 20分 (15 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">17:00 - 21:30</span><span class="card-tag">陶藝體驗</span></div>
-          <div class="card-desc">阿瓦諾斯陶藝拉胚 ➔ 晚餐與整理次日行李 🚗 25分 (20 km)</div>
-        </div>
-      </div>
-      <div class="column-footer">🏨 宿：卡帕多奇亞特色洞穴飯店</div>
-    </div>
-
-    <!-- Day 6 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 6 ｜ 9/24 (四) <span>熱氣球窗口 3</span></div>
-        <div class="day-subtitle">熱氣球候補 ➔ 絲路古驛站 ➔ 古都孔亞</div>
-      </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">05:00 - 08:30</span><span class="card-tag tag-balloon">熱氣球窗口 3</span></div>
-          <div class="card-desc"><strong>熱氣球【候補窗口 3】</strong>（若前兩日已飛則露台看球）</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">09:30 - 11:30</span><span class="card-tag tag-drive">自駕第 1 段</span></div>
-          <div class="card-desc"><strong>哥雷目 ➔ 蘇丹哈尼</strong>：沿 D300 高原西行 🚗 1.5–2 小時 (150 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">11:30 - 13:00</span><span class="card-tag">絲路古驛站</span></div>
-          <div class="card-desc"><strong>中繼站：蘇丹哈尼古驛站</strong> 參觀石雕拱門與午餐</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">13:00 - 14:30</span><span class="card-tag tag-drive">自駕第 2 段</span></div>
-          <div class="card-desc"><strong>蘇丹哈尼 ➔ 古都孔亞</strong> 🚗 1.5 小時 (110 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">14:30 - 17:00</span><span class="card-tag">市區漫步</span></div>
-          <div class="card-desc">飯店入住，漫步阿拉丁丘陵公園與古城老街</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">17:00 - 21:00</span><span class="card-tag">清真寺與晚餐</span></div>
-          <div class="card-desc">參觀<strong>梅夫拉那清真寺</strong> ➔ 享用孔亞特產烤薄餅(Pide)</div>
-        </div>
-      </div>
-      <div class="column-footer">🏨 宿：孔亞星級飯店（全日自駕 260 km）</div>
-    </div>
-
-    <!-- Day 7 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 7 ｜ 9/25 (五) <span>湖區放鬆</span></div>
-        <div class="day-subtitle">孔亞 ➔ 埃爾迪爾湖 ➔ 溶洞 ➔ 棉花堡</div>
-      </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">08:30 - 10:30</span><span class="card-tag tag-drive">自駕第 1 段</span></div>
-          <div class="card-desc"><strong>孔亞 ➔ 埃爾迪爾湖</strong> 湖區景觀道路 🚗 2 小時 (170 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">10:30 - 12:30</span><span class="card-tag">湖畔小憩</span></div>
-          <div class="card-desc"><strong>中繼站 1：埃爾迪爾湖畔</strong> 享用午餐、漫步綠島喝茶</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">12:30 - 14:00</span><span class="card-tag tag-drive">自駕第 2 段</span></div>
-          <div class="card-desc"><strong>埃爾迪爾湖 ➔ 卡卡利克溶洞</strong> 🚗 1.5 小時 (130 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">14:00 - 14:50</span><span class="card-tag">地下溶洞</span></div>
-          <div class="card-desc"><strong>中繼站 2：卡卡利克地下棉花堡</strong> 參觀地下石灰華瀑布</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">14:50 - 15:30</span><span class="card-tag tag-drive">自駕第 3 段</span></div>
-          <div class="card-desc"><strong>卡卡利克 ➔ 棉花堡飯店</strong> 🚗 35 分 (30 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">15:30 - 21:30</span><span class="card-tag">石灰棚與溫泉</span></div>
-          <div class="card-desc">漫步<strong>棉花堡白色石灰棚梯田</strong>賞夕陽 ➔ 享受飯店溫泉水療</div>
-        </div>
-      </div>
-      <div class="column-footer">🏨 宿：棉花堡溫泉度假飯店（日自駕 330km）</div>
-    </div>
-
-    <!-- Day 8 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 8 ｜ 9/26 (六) <span>雙世界遺產</span></div>
-        <div class="day-subtitle">棉花堡 ➔ 以弗所古城 ➔ 愛琴海伊茲米爾</div>
-      </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">08:30 - 11:00</span><span class="card-tag tag-drive">自駕第 1 段</span></div>
-          <div class="card-desc"><strong>棉花堡 ➔ 以弗所古城</strong> 🚗 2.5 小時 (185 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">11:00 - 14:30</span><span class="card-tag">羅馬古城</span></div>
-          <div class="card-desc">深度參觀<strong>以弗所古城（Ephesus）</strong>圖書館與大劇場 ＋ 午餐</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">14:30 - 16:00</span><span class="card-tag tag-drive">自駕第 2 段</span></div>
-          <div class="card-desc"><strong>以弗所 ➔ 愛琴海伊茲米爾</strong> 🚗 1 小時 15 分 (80 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">16:00 - 19:00</span><span class="card-tag">海濱夕陽</span></div>
-          <div class="card-desc">飯店入住，愛琴海濱海步道漫步看夕陽、參觀鐘樓廣場</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">19:00 - 21:30</span><span class="card-tag">告別晚宴</span></div>
-          <div class="card-desc">享用愛琴海新鮮烤海鮮告別晚宴，整理全部行李</div>
-        </div>
-      </div>
-      <div class="column-footer">🏨 宿：伊茲米爾海濱景觀飯店（日自駕 265km）</div>
-    </div>
-
-    <!-- Day 9 -->
-    <div class="day-column">
-      <div class="column-header">
-        <div class="day-title">Day 9 ｜ 9/27 (日) <span>圓滿賦歸</span></div>
-        <div class="day-subtitle">還車 ✈️ 飛返IST轉機 ➔ TK124直飛返台</div>
-      </div>
-      <div class="column-body">
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">07:30 - 08:30</span><span class="card-tag">早餐退房</span></div>
-          <div class="card-desc">享用飯店早餐、退房並提領行李出發</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">08:30 - 09:15</span><span class="card-tag tag-drive">機場還車</span></div>
-          <div class="card-desc"><strong>自駕前往 ADB 機場</strong> 加油辦理還車手續 ⛽ 🚗 35 分 (20 km)</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">09:15 - 10:40</span><span class="card-tag tag-flight">貴賓室</span></div>
-          <div class="card-desc">國內線報到托運，銀卡會員享用 ADB 貴賓室休憩</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">10:40 - 12:00</span><span class="card-tag tag-flight">TK2313</span></div>
-          <div class="card-desc"><strong>搭乘 TK2313（ADB ✈️ IST）</strong>（B777 / 1h 20m 飛抵伊斯坦堡）[cite: 1]</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">12:00 - 15:55</span><span class="card-tag tag-flight">國際轉機</span></div>
-          <div class="card-desc">IST 機場轉機、退稅、免稅店採買（預留 3h 55m 充裕時間）[cite: 1]</div>
-        </div>
-        <div class="time-card">
-          <div class="card-top"><span class="time-badge">15:55 - 08:10(+1)</span><span class="card-tag tag-flight">TK124 直飛</span></div>
-          <div class="card-desc"><strong>搭乘 TK124 正式起飛直飛返台 ✈️</strong>（9/28 08:10 抵達桃園機場）</div>
-        </div>
-      </div>
-      <div class="column-footer">✈️ 機上航程（9/28 08:10 抵達台灣）</div>
-    </div>
-
   </div>
+
+  <!-- TAB 2: 全部航班總表 -->
+  <div id="desk-tab-flights" class="tab-panel">
+    <div class="flight-table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>航段類型</th>
+            <th>航班編號</th>
+            <th>搭乘成員</th>
+            <th>航空公司 / 機型</th>
+            <th>起飛地 ➔ 目的地</th>
+            <th>起飛與抵達時間 (當地)</th>
+            <th>航程時間</th>
+            <th>備註與人員動線</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>9/18–9/19</strong></td>
+            <td><span class="card-tag tag-flight">國際去程 1</span></td>
+            <td><strong>TK165</strong></td>
+            <td><span class="tag-member">文、栗</span></td>
+            <td>土耳其航空 ｜ B787 / B777</td>
+            <td>河內 (HAN) ➔ 伊斯坦堡 (IST)</td>
+            <td><strong style="color:var(--primary);">22:55 ➔ 05:15(+1)</strong></td>
+            <td>10 小時 20 分</td>
+            <td><strong>第一組</strong> 抵達後專車前往市區飯店寄存行李，體驗土耳其浴與享用舊城午餐</td>
+          </tr>
+          <tr>
+            <td><strong>9/19 (六)</strong></td>
+            <td><span class="card-tag tag-flight">國際去程 2</span></td>
+            <td><strong>TK171</strong></td>
+            <td><span class="tag-member">昌、閔</span></td>
+            <td>土耳其航空 ｜ B777-300ER</td>
+            <td>香港 (HKG) ➔ 伊斯坦堡 (IST)</td>
+            <td><strong style="color:var(--primary);">08:55 ➔ 15:20</strong></td>
+            <td>11 小時 25 分</td>
+            <td><strong>第二組</strong> 抵達 IST，17:30 專車抵達舊城飯店與文、栗會合[cite: 1]</td>
+          </tr>
+          <tr>
+            <td><strong>9/21–9/22</strong></td>
+            <td><span class="card-tag tag-drive">境內直飛</span></td>
+            <td><strong>PC2746</strong></td>
+            <td><span class="card-tag">全員同行</span></td>
+            <td>帕格薩斯航空 ｜ Airbus A321</td>
+            <td>伊斯坦堡亞洲側 (SAW) ➔ 開塞利 (ASR)</td>
+            <td><strong style="color:var(--primary);">23:55 ➔ 01:15(+1)</strong></td>
+            <td>1 小時 20 分</td>
+            <td><strong>提早一晚直飛卡帕</strong>，爭取 9/22–9/24 滿滿 3 個清晨熱氣球窗口！</td>
+          </tr>
+          <tr>
+            <td><strong>9/27 (日)</strong></td>
+            <td><span class="card-tag tag-drive">境內返程</span></td>
+            <td><strong>TK2313</strong></td>
+            <td><span class="card-tag">全員同行</span></td>
+            <td>土耳其航空 ｜ Boeing 777</td>
+            <td>伊茲米爾 (ADB) ➔ 伊斯坦堡 (IST)</td>
+            <td><strong style="color:var(--primary);">10:40 ➔ 12:00</strong></td>
+            <td>1 小時 20 分</td>
+            <td>ADB 機場還車後飛抵 IST，預留 <strong>3 小時 55 分</strong> 轉機出境時間[cite: 1]</td>
+          </tr>
+          <tr>
+            <td><strong>9/27 (日)</strong></td>
+            <td><span class="card-tag tag-balloon">國際返程</span></td>
+            <td><strong>TK124</strong></td>
+            <td><span class="card-tag">全員同行</span></td>
+            <td>土耳其航空 ｜ 直飛航班</td>
+            <td>伊斯坦堡 (IST) ➔ 台北桃園 (TPE)</td>
+            <td><strong style="color:var(--primary);">15:55 ➔ 08:10(+1)</strong></td>
+            <td>11 小時 15 分</td>
+            <td>直飛返台（9/28 08:10 抵達台灣桃園機場）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function switchDeskTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+      
+      if(tabId === 'board') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('desk-tab-board').classList.add('active');
+      } else {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('desk-tab-flights').classList.add('active');
+      }
+    }
+  </script>
 
 </body>
 </html>
