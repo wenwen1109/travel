@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +21,9 @@
     }
   </style>
 </head>
-<body class="text-slate-800 antialiased pb-20">
+<body class="text-slate-800 antialiased pb-24">
 
-  <!-- Header Banner (Clean & Compact) -->
+  <!-- Header Banner -->
   <header class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white pt-6 pb-6 px-4 md:px-8 shadow-lg">
     <div class="max-w-4xl mx-auto">
       <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
@@ -40,90 +40,92 @@
     </div>
   </header>
 
-  <!-- Sticky Nav Tabs -->
+  <!-- Sticky Quick Nav -->
   <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
     <div class="max-w-4xl mx-auto px-4 flex overflow-x-auto no-scrollbar gap-2 py-3">
-      <button onclick="showTab('day1')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-indigo-600 text-white shadow-sm transition" data-target="day1">
-        DAY 1 (8/27 四)
-      </button>
-      <button onclick="showTab('day2')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="day2">
-        DAY 2 (8/28 五)
-      </button>
-      <button onclick="showTab('day3')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="day3">
-        DAY 3 (8/29 六)
-      </button>
-      <button onclick="showTab('day4')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="day4">
-        DAY 4-5 (8/30 日 - 8/31 一)
-      </button>
-      <button onclick="showTab('flight')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="flight">
-        ✈️ 航班資訊
-      </button>
-      <button onclick="showTab('info')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="info">
+      <a href="#sec-flight" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
+        ✈️ 航班
+      </a>
+      <a href="#sec-day1" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-sky-50 text-sky-700 hover:bg-sky-100 transition border border-sky-200">
+        DAY 1 (8/27)
+      </a>
+      <a href="#sec-day2" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-indigo-50 text-indigo-700 hover:bg-indigo-100 transition border border-indigo-200">
+        DAY 2 (8/28)
+      </a>
+      <a href="#sec-day3" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition border border-emerald-200">
+        DAY 3 (8/29)
+      </a>
+      <a href="#sec-day4" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-amber-50 text-amber-700 hover:bg-amber-100 transition border border-amber-200">
+        DAY 4-5 (8/30-31)
+      </a>
+      <a href="#sec-info" class="px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap bg-slate-100 hover:bg-slate-200 text-slate-700 transition">
         實用指南
-      </button>
+      </a>
     </div>
   </nav>
 
-  <!-- Main Content Container -->
-  <main class="max-w-4xl mx-auto px-4 pt-6">
+  <!-- Main Content (All in One Flow) -->
+  <main class="max-w-4xl mx-auto px-4 pt-6 space-y-10">
 
-    <!-- FLIGHT TAB (Dedicated Tab) -->
-    <div id="flight" class="tab-content hidden space-y-4">
+    <!-- FLIGHT SECTION -->
+    <section id="sec-flight" class="scroll-mt-20">
       <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 mb-4">
-        <h2 class="text-base md:text-lg font-black text-indigo-950 flex items-center gap-2">
+        <h2 class="text-base font-black text-indigo-950 flex items-center gap-2">
           <i class="fa-solid fa-plane-departure text-indigo-600"></i> 來回航班詳情 (虎航 tigerlight)
         </h2>
-        <p class="text-xs text-indigo-700 mt-1">請於起飛前 2.5 - 3 小時至機場第一航廈辦理報到手續</p>
+        <p class="text-xs text-indigo-700 mt-0.5">請於起飛前 2.5 - 3 小時至機場第一航廈辦理報到手續</p>
       </div>
 
-      <!-- Outbound -->
-      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-        <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-4">
-          <span class="font-black text-slate-900 text-sm md:text-base flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-sky-500 inline-block"></span> 去程航班
-          </span>
-          <span class="text-xs font-mono font-bold bg-sky-100 text-sky-800 px-3 py-1 rounded-full">IT602</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
-          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-            <span class="text-slate-400 block text-xs">出發地</span>
-            <strong class="text-slate-800 text-sm block mt-0.5">TPE 桃園國際機場 (Terminal 1)</strong>
-            <span class="text-indigo-600 font-mono font-bold mt-1 block">2026-08-27 (四) 20:00</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Outbound -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+          <div class="flex justify-between items-center pb-2.5 border-b border-slate-100 mb-3">
+            <span class="font-black text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span> 去程航班
+            </span>
+            <span class="text-xs font-mono font-bold bg-sky-100 text-sky-800 px-2.5 py-0.5 rounded-full">IT602</span>
           </div>
-          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-            <span class="text-slate-400 block text-xs">抵達地</span>
-            <strong class="text-slate-800 text-sm block mt-0.5">ICN 仁川國際機場 (Terminal 1)</strong>
-            <span class="text-emerald-600 font-mono font-bold mt-1 block">2026-08-27 (四) 23:30</span>
+          <div class="space-y-2 text-xs">
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <span class="text-slate-400 block text-[11px]">出發地</span>
+              <strong class="text-slate-800 block">TPE 桃園國際機場 (T1)</strong>
+              <span class="text-indigo-600 font-mono font-bold">2026-08-27 (四) 20:00</span>
+            </div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <span class="text-slate-400 block text-[11px]">抵達地</span>
+              <strong class="text-slate-800 block">ICN 仁川國際機場 (T1)</strong>
+              <span class="text-emerald-600 font-mono font-bold">2026-08-27 (四) 23:30</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inbound -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+          <div class="flex justify-between items-center pb-2.5 border-b border-slate-100 mb-3">
+            <span class="font-black text-slate-900 text-sm flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> 回程航班
+            </span>
+            <span class="text-xs font-mono font-bold bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full">IT603</span>
+          </div>
+          <div class="space-y-2 text-xs">
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <span class="text-slate-400 block text-[11px]">出發地</span>
+              <strong class="text-slate-800 block">ICN 仁川國際機場 (T1)</strong>
+              <span class="text-indigo-600 font-mono font-bold">2026-08-31 (一) 00:30</span>
+            </div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <span class="text-slate-400 block text-[11px]">抵達地</span>
+              <strong class="text-slate-800 block">TPE 桃園國際機場 (T1)</strong>
+              <span class="text-emerald-600 font-mono font-bold">2026-08-31 (一) 02:15</span>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Inbound -->
-      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-        <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-4">
-          <span class="font-black text-slate-900 text-sm md:text-base flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> 回程航班
-          </span>
-          <span class="text-xs font-mono font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">IT603</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
-          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-            <span class="text-slate-400 block text-xs">出發地</span>
-            <strong class="text-slate-800 text-sm block mt-0.5">ICN 仁川國際機場 (Terminal 1)</strong>
-            <span class="text-indigo-600 font-mono font-bold mt-1 block">2026-08-31 (一) 00:30</span>
-          </div>
-          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-            <span class="text-slate-400 block text-xs">抵達地</span>
-            <strong class="text-slate-800 text-sm block mt-0.5">TPE 桃園國際機場 (Terminal 1)</strong>
-            <span class="text-emerald-600 font-mono font-bold mt-1 block">2026-08-31 (一) 02:15</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DAY 1 TAB -->
-    <div id="day1" class="tab-content">
-      <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4 mb-6 flex justify-between items-center">
+    <!-- DAY 1 SECTION -->
+    <section id="sec-day1" class="scroll-mt-20">
+      <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4 mb-4 flex justify-between items-center">
         <div>
           <h2 class="text-base md:text-lg font-black text-sky-950">DAY 1 ｜ 8/27 (四) 啟程首爾・深夜直達弘大</h2>
           <p class="text-xs text-sky-700 mt-0.5">搭乘虎航晚班機抵達仁川，轉乘深夜機場巴士 N6002 直達弘大基地</p>
@@ -132,13 +134,13 @@
       </div>
 
       <div class="relative timeline-line space-y-4">
-        
+        <!-- R1 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-plane"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded">20:00 - 23:30</span>
               <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">飛行體驗</span>
             </div>
@@ -152,26 +154,28 @@
           </div>
         </div>
 
+        <!-- R2 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-passport"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded">23:30 - 00:40</span>
               <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">入境手續</span>
             </div>
             <h3 class="font-bold text-slate-900 text-sm md:text-base">入境審查、領取行李、T-Money 卡儲值</h3>
-            <p class="text-xs text-slate-600 mt-1">下機後辦理入境手續、提領行李，並至便利商店儲值 T-Money 交通卡。</p>
+            <p class="text-xs text-slate-600 mt-1">下機後辦理入境手續、提領行李，並至機場便利商店儲值 T-Money 交通卡。</p>
           </div>
         </div>
 
+        <!-- R3 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bus"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded">00:40 - 01:40</span>
               <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-medium">深夜直達巴士</span>
             </div>
@@ -185,12 +189,13 @@
           </div>
         </div>
 
+        <!-- R4 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bowl-food"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded">01:40 - 02:30</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">宵夜美食</span>
             </div>
@@ -204,12 +209,13 @@
           </div>
         </div>
 
+        <!-- R5 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bed"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded">02:30 ~</span>
               <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">住宿入住</span>
             </div>
@@ -222,13 +228,12 @@
             </div>
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
 
-    <!-- DAY 2 TAB -->
-    <div id="day2" class="tab-content hidden">
-      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 mb-6 flex justify-between items-center">
+    <!-- DAY 2 SECTION -->
+    <section id="sec-day2" class="scroll-mt-20">
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 mb-4 flex justify-between items-center">
         <div>
           <h2 class="text-base md:text-lg font-black text-indigo-950">DAY 2 ｜ 8/28 (五) 弘大旗艦・風川烤鰻・東廟 SPAREX</h2>
           <p class="text-xs text-indigo-700 mt-0.5">上午 10:30 Kakao 旗艦 ➔ 11:30 風川烤鰻 ➔ 新沙聖水 ➔ 東廟 SPAREX 汗蒸幕</p>
@@ -237,13 +242,13 @@
       </div>
 
       <div class="relative timeline-line space-y-4">
-        
+        <!-- R1 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-store"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">10:30 - 11:15</span>
               <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">10:30 一開店即入店</span>
             </div>
@@ -257,12 +262,13 @@
           </div>
         </div>
 
+        <!-- R2 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-fire"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">11:30 - 13:00</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">午餐 1.5h</span>
             </div>
@@ -276,12 +282,13 @@
           </div>
         </div>
 
+        <!-- R3 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bag-shopping"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">13:30 - 15:00</span>
               <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">街區漫步</span>
             </div>
@@ -295,12 +302,13 @@
           </div>
         </div>
 
+        <!-- R4 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bread-slice"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">15:15 - 17:00</span>
               <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium">潮流探店</span>
             </div>
@@ -314,12 +322,13 @@
           </div>
         </div>
 
+        <!-- R5 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-utensils"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">17:00 - 18:30</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">特色料理</span>
             </div>
@@ -333,12 +342,13 @@
           </div>
         </div>
 
+        <!-- R6 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-beer-mug-empty"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">19:00 - 21:00</span>
               <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">晚餐宵夜</span>
             </div>
@@ -352,12 +362,13 @@
           </div>
         </div>
 
+        <!-- R7 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-spa"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded">21:30 - 23:30</span>
               <span class="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-medium">汗蒸放鬆</span>
             </div>
@@ -370,13 +381,12 @@
             </div>
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
 
-    <!-- DAY 3 TAB -->
-    <div id="day3" class="tab-content hidden">
-      <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-6 flex justify-between items-center">
+    <!-- DAY 3 SECTION -->
+    <section id="sec-day3" class="scroll-mt-20">
+      <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-4 flex justify-between items-center">
         <div>
           <h2 class="text-base md:text-lg font-black text-emerald-950">DAY 3 ｜ 8/29 (六) 蔘雞湯・叮叮車・帝王蟹・馬場洞韓牛</h2>
           <p class="text-xs text-emerald-700 mt-0.5">土俗村蔘雞湯 ➔ 叮叮車 ➔ 鷺梁津帝王蟹 ➔ 益善洞雨景 ➔ 廣藏市場 ➔ 馬場洞韓牛</p>
@@ -385,13 +395,13 @@
       </div>
 
       <div class="relative timeline-line space-y-4">
-        
+        <!-- R1 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bowl-rice"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">09:30 - 10:45</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">早午餐名店</span>
             </div>
@@ -405,12 +415,13 @@
           </div>
         </div>
 
+        <!-- R2 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-train-tram"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">11:00 - 12:30</span>
               <span class="text-xs bg-sky-100 text-sky-700 px-2 py-0.5 rounded-full font-medium">街區導覽</span>
             </div>
@@ -424,12 +435,13 @@
           </div>
         </div>
 
+        <!-- R3 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-shrimp"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">13:00 - 14:30</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">午餐 1.5h</span>
             </div>
@@ -443,12 +455,13 @@
           </div>
         </div>
 
+        <!-- R4 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-cloud-rain"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">15:00 - 16:30</span>
               <span class="text-xs bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-medium">特色咖啡</span>
             </div>
@@ -462,12 +475,13 @@
           </div>
         </div>
 
+        <!-- R5 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-basket-shopping"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">16:30 - 18:00</span>
               <span class="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">傳統市場</span>
             </div>
@@ -481,12 +495,13 @@
           </div>
         </div>
 
+        <!-- R6 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-fire-flame-curved"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">18:30 - 20:00</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">晚餐 1.5h</span>
             </div>
@@ -500,12 +515,13 @@
           </div>
         </div>
 
+        <!-- R7 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-person-walking"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">20:30 - 22:00</span>
               <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">街區夜遊</span>
             </div>
@@ -518,13 +534,12 @@
             </div>
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
 
-    <!-- DAY 4-5 TAB -->
-    <div id="day4" class="tab-content hidden">
-      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6 flex justify-between items-center">
+    <!-- DAY 4-5 SECTION -->
+    <section id="sec-day4" class="scroll-mt-20">
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-4 flex justify-between items-center">
         <div>
           <h2 class="text-base md:text-lg font-black text-amber-950">DAY 4-5 ｜ 8/30 (日) - 8/31 (一) 明洞大創・樂天站前・滿載返程</h2>
           <p class="text-xs text-amber-700 mt-0.5">脊骨湯 ➔ 明洞大創 12層 ➔ 廣津橋 ➔ 樂天 Outlet + 樂天超市 ➔ 機場返台</p>
@@ -533,13 +548,13 @@
       </div>
 
       <div class="relative timeline-line space-y-4">
-        
+        <!-- R1 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bowl-food"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">09:30 - 11:00</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">早餐</span>
             </div>
@@ -553,12 +568,13 @@
           </div>
         </div>
 
+        <!-- R2 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-store"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">11:30 - 13:00</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">旗艦大創</span>
             </div>
@@ -572,12 +588,13 @@
           </div>
         </div>
 
+        <!-- R3 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-fire"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">13:15 - 14:30</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">午餐</span>
             </div>
@@ -591,12 +608,13 @@
           </div>
         </div>
 
+        <!-- R4 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bridge"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">15:00 - 16:30</span>
               <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-medium">在地秘境</span>
             </div>
@@ -610,12 +628,13 @@
           </div>
         </div>
 
+        <!-- R5 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-cart-shopping"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">17:00 - 19:00</span>
               <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">採購 (Outlet 1h + 超市 1h)</span>
             </div>
@@ -632,12 +651,13 @@
           </div>
         </div>
 
+        <!-- R6 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-suitcase"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">19:30 - 20:45</span>
               <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">整裝出發</span>
             </div>
@@ -646,12 +666,13 @@
           </div>
         </div>
 
+        <!-- R7 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-train"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">20:45 - 00:30</span>
               <span class="text-xs bg-sky-100 text-sky-700 px-2 py-0.5 rounded-full font-medium">機場鐵路 & 退稅</span>
             </div>
@@ -665,12 +686,13 @@
           </div>
         </div>
 
+        <!-- R8 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-plane-arrival"></i>
           </div>
           <div class="flex-1 bg-emerald-50 border border-emerald-200 rounded-2xl p-4 shadow-sm">
-            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
               <span class="font-mono text-xs font-bold text-emerald-800 bg-emerald-200 px-2 py-0.5 rounded">00:30 - 02:15</span>
               <span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-full font-medium">抵達台灣</span>
             </div>
@@ -678,12 +700,11 @@
             <p class="text-xs text-emerald-800 mt-1">8/31 (一) 02:15 平安返抵台灣，文、栗、派、恕、雷、傑 滿載美食回憶與戰利品結束精彩首爾行！</p>
           </div>
         </div>
-
       </div>
-    </div>
+    </section>
 
-    <!-- INFO TAB -->
-    <div id="info" class="tab-content hidden space-y-4">
+    <!-- INFO SECTION -->
+    <section id="sec-info" class="scroll-mt-20 space-y-4">
       <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
         <h3 class="font-bold text-slate-900 text-sm md:text-base mb-3 flex items-center gap-2">
           <i class="fa-solid fa-hotel text-amber-500"></i> 住宿基地資訊
@@ -707,23 +728,9 @@
           <li><strong>機場退稅流程：</strong>先在仁川機場 T1 出境大廳機台掃描護照與退稅單，通過安檢後至 28 號登機門旁退稅櫃檯領取現金。</li>
         </ul>
       </div>
-    </div>
+    </section>
 
   </main>
 
-  <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      document.getElementById(tabId).classList.remove('hidden');
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        if(btn.getAttribute('data-target') === tabId) {
-          btn.className = "tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-indigo-600 text-white shadow-sm transition";
-        } else {
-          btn.className = "tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
-        }
-      });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
 </body>
 </html>
