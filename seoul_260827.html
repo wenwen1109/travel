@@ -23,39 +23,20 @@
 </head>
 <body class="text-slate-800 antialiased pb-20">
 
-  <!-- Header Banner -->
-  <header class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white pt-8 pb-10 px-4 md:px-8 shadow-lg">
+  <!-- Header Banner (Clean & Compact) -->
+  <header class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white pt-6 pb-6 px-4 md:px-8 shadow-lg">
     <div class="max-w-4xl mx-auto">
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
         <span class="px-3 py-1 bg-amber-400 text-slate-950 font-black text-xs rounded-full uppercase tracking-wider">
           Seoul Travel Handbook 2026
         </span>
-        <div class="flex items-center gap-1.5 text-xs text-slate-300 bg-white/10 px-3 py-1.5 rounded-full border border-white/10">
+        <div class="flex items-center gap-1.5 text-xs text-slate-300 bg-white/10 px-3 py-1 rounded-full border border-white/10">
           <i class="fa-solid fa-users text-amber-400"></i>
           <span>成員：<strong>文、栗、派、恕、雷、傑</strong></span>
         </div>
       </div>
-      
-      <h1 class="text-2xl md:text-3xl font-black mb-2 tracking-tight">首爾 5 天 4 夜 經典潮流 & 美食探索手冊</h1>
-      <p class="text-slate-300 text-xs md:text-sm">2026.08.27 (五) – 2026.08.31 (二) ｜ 弘大・延禧洞基地</p>
-
-      <!-- Flight Summary Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-3.5 backdrop-blur-sm">
-          <div class="flex justify-between items-center mb-1.5">
-            <span class="text-xs text-sky-400 font-bold flex items-center gap-1.5"><i class="fa-solid fa-plane-departure"></i> 去程航班 tigerlight</span>
-            <span class="text-xs bg-sky-500/20 text-sky-300 px-2 py-0.5 rounded font-mono font-bold">IT602</span>
-          </div>
-          <p class="text-xs text-slate-200"><strong>2026-08-27 20:00</strong> 桃園 T1 ➔ <strong>23:30</strong> 仁川 T1</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-3.5 backdrop-blur-sm">
-          <div class="flex justify-between items-center mb-1.5">
-            <span class="text-xs text-emerald-400 font-bold flex items-center gap-1.5"><i class="fa-solid fa-plane-arrival"></i> 回程航班 tigerlight</span>
-            <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-mono font-bold">IT603</span>
-          </div>
-          <p class="text-xs text-slate-200"><strong>2026-08-31 00:30</strong> 仁川 T1 ➔ <strong>02:15</strong> 桃園 T1</p>
-        </div>
-      </div>
+      <h1 class="text-xl md:text-2xl font-black tracking-tight">首爾 5 天 4 夜 經典潮流 & 美食探索手冊</h1>
+      <p class="text-slate-300 text-xs mt-1">2026.08.27 (四) – 2026.08.31 (一) ｜ 弘大・延禧洞基地</p>
     </div>
   </header>
 
@@ -63,19 +44,22 @@
   <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
     <div class="max-w-4xl mx-auto px-4 flex overflow-x-auto no-scrollbar gap-2 py-3">
       <button onclick="showTab('day1')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-indigo-600 text-white shadow-sm transition" data-target="day1">
-        DAY 1 (8/27)
+        DAY 1 (8/27 四)
       </button>
       <button onclick="showTab('day2')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="day2">
-        DAY 2 (8/28)
+        DAY 2 (8/28 五)
       </button>
       <button onclick="showTab('day3')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="day3">
-        DAY 3 (8/29)
+        DAY 3 (8/29 六)
       </button>
       <button onclick="showTab('day4')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="day4">
-        DAY 4-5 (8/30-31)
+        DAY 4-5 (8/30 日 - 8/31 一)
+      </button>
+      <button onclick="showTab('flight')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="flight">
+        ✈️ 航班資訊
       </button>
       <button onclick="showTab('info')" class="tab-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap bg-slate-100 text-slate-600 hover:bg-slate-200 transition" data-target="info">
-        實用資訊
+        實用指南
       </button>
     </div>
   </nav>
@@ -83,11 +67,65 @@
   <!-- Main Content Container -->
   <main class="max-w-4xl mx-auto px-4 pt-6">
 
+    <!-- FLIGHT TAB (Dedicated Tab) -->
+    <div id="flight" class="tab-content hidden space-y-4">
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 mb-4">
+        <h2 class="text-base md:text-lg font-black text-indigo-950 flex items-center gap-2">
+          <i class="fa-solid fa-plane-departure text-indigo-600"></i> 來回航班詳情 (虎航 tigerlight)
+        </h2>
+        <p class="text-xs text-indigo-700 mt-1">請於起飛前 2.5 - 3 小時至機場第一航廈辦理報到手續</p>
+      </div>
+
+      <!-- Outbound -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+        <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-4">
+          <span class="font-black text-slate-900 text-sm md:text-base flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-sky-500 inline-block"></span> 去程航班
+          </span>
+          <span class="text-xs font-mono font-bold bg-sky-100 text-sky-800 px-3 py-1 rounded-full">IT602</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+            <span class="text-slate-400 block text-xs">出發地</span>
+            <strong class="text-slate-800 text-sm block mt-0.5">TPE 桃園國際機場 (Terminal 1)</strong>
+            <span class="text-indigo-600 font-mono font-bold mt-1 block">2026-08-27 (四) 20:00</span>
+          </div>
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+            <span class="text-slate-400 block text-xs">抵達地</span>
+            <strong class="text-slate-800 text-sm block mt-0.5">ICN 仁川國際機場 (Terminal 1)</strong>
+            <span class="text-emerald-600 font-mono font-bold mt-1 block">2026-08-27 (四) 23:30</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inbound -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+        <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-4">
+          <span class="font-black text-slate-900 text-sm md:text-base flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> 回程航班
+          </span>
+          <span class="text-xs font-mono font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">IT603</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+            <span class="text-slate-400 block text-xs">出發地</span>
+            <strong class="text-slate-800 text-sm block mt-0.5">ICN 仁川國際機場 (Terminal 1)</strong>
+            <span class="text-indigo-600 font-mono font-bold mt-1 block">2026-08-31 (一) 00:30</span>
+          </div>
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+            <span class="text-slate-400 block text-xs">抵達地</span>
+            <strong class="text-slate-800 text-sm block mt-0.5">TPE 桃園國際機場 (Terminal 1)</strong>
+            <span class="text-emerald-600 font-mono font-bold mt-1 block">2026-08-31 (一) 02:15</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- DAY 1 TAB -->
     <div id="day1" class="tab-content">
       <div class="bg-sky-50 border border-sky-200 rounded-2xl p-4 mb-6 flex justify-between items-center">
         <div>
-          <h2 class="text-base md:text-lg font-black text-sky-950">DAY 1 ｜ 8/27 (五) 啟程首爾・深夜直達弘大</h2>
+          <h2 class="text-base md:text-lg font-black text-sky-950">DAY 1 ｜ 8/27 (四) 啟程首爾・深夜直達弘大</h2>
           <p class="text-xs text-sky-700 mt-0.5">搭乘虎航晚班機抵達仁川，轉乘深夜機場巴士 N6002 直達弘大基地</p>
         </div>
         <span class="text-2xl">🌙</span>
@@ -95,7 +133,6 @@
 
       <div class="relative timeline-line space-y-4">
         
-        <!-- Row 1 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-plane"></i>
@@ -115,7 +152,6 @@
           </div>
         </div>
 
-        <!-- Row 2 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-passport"></i>
@@ -130,7 +166,6 @@
           </div>
         </div>
 
-        <!-- Row 3 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bus"></i>
@@ -150,7 +185,6 @@
           </div>
         </div>
 
-        <!-- Row 4 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bowl-food"></i>
@@ -170,7 +204,6 @@
           </div>
         </div>
 
-        <!-- Row 5 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bed"></i>
@@ -197,7 +230,7 @@
     <div id="day2" class="tab-content hidden">
       <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 mb-6 flex justify-between items-center">
         <div>
-          <h2 class="text-base md:text-lg font-black text-indigo-950">DAY 2 ｜ 8/28 (六) 弘大旗艦・風川烤鰻・東廟 SPAREX</h2>
+          <h2 class="text-base md:text-lg font-black text-indigo-950">DAY 2 ｜ 8/28 (五) 弘大旗艦・風川烤鰻・東廟 SPAREX</h2>
           <p class="text-xs text-indigo-700 mt-0.5">上午 10:30 Kakao 旗艦 ➔ 11:30 風川烤鰻 ➔ 新沙聖水 ➔ 東廟 SPAREX 汗蒸幕</p>
         </div>
         <span class="text-2xl">🛍️</span>
@@ -205,7 +238,6 @@
 
       <div class="relative timeline-line space-y-4">
         
-        <!-- Row 1 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-store"></i>
@@ -225,7 +257,6 @@
           </div>
         </div>
 
-        <!-- Row 2 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-fire"></i>
@@ -245,7 +276,6 @@
           </div>
         </div>
 
-        <!-- Row 3 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bag-shopping"></i>
@@ -265,7 +295,6 @@
           </div>
         </div>
 
-        <!-- Row 4 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bread-slice"></i>
@@ -285,7 +314,6 @@
           </div>
         </div>
 
-        <!-- Row 5 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-utensils"></i>
@@ -305,7 +333,6 @@
           </div>
         </div>
 
-        <!-- Row 6 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-beer-mug-empty"></i>
@@ -325,7 +352,6 @@
           </div>
         </div>
 
-        <!-- Row 7 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-spa"></i>
@@ -352,7 +378,7 @@
     <div id="day3" class="tab-content hidden">
       <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 mb-6 flex justify-between items-center">
         <div>
-          <h2 class="text-base md:text-lg font-black text-emerald-950">DAY 3 ｜ 8/29 (日) 蔘雞湯・叮叮車・帝王蟹・馬場洞韓牛</h2>
+          <h2 class="text-base md:text-lg font-black text-emerald-950">DAY 3 ｜ 8/29 (六) 蔘雞湯・叮叮車・帝王蟹・馬場洞韓牛</h2>
           <p class="text-xs text-emerald-700 mt-0.5">土俗村蔘雞湯 ➔ 叮叮車 ➔ 鷺梁津帝王蟹 ➔ 益善洞雨景 ➔ 廣藏市場 ➔ 馬場洞韓牛</p>
         </div>
         <span class="text-2xl">🥩</span>
@@ -360,7 +386,6 @@
 
       <div class="relative timeline-line space-y-4">
         
-        <!-- Row 1 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bowl-rice"></i>
@@ -380,7 +405,6 @@
           </div>
         </div>
 
-        <!-- Row 2 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-train-tram"></i>
@@ -400,7 +424,6 @@
           </div>
         </div>
 
-        <!-- Row 3 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-shrimp"></i>
@@ -420,7 +443,6 @@
           </div>
         </div>
 
-        <!-- Row 4 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-cloud-rain"></i>
@@ -440,7 +462,6 @@
           </div>
         </div>
 
-        <!-- Row 5 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-basket-shopping"></i>
@@ -460,7 +481,6 @@
           </div>
         </div>
 
-        <!-- Row 6 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-fire-flame-curved"></i>
@@ -480,7 +500,6 @@
           </div>
         </div>
 
-        <!-- Row 7 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-person-walking"></i>
@@ -507,15 +526,14 @@
     <div id="day4" class="tab-content hidden">
       <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6 flex justify-between items-center">
         <div>
-          <h2 class="text-base md:text-lg font-black text-amber-950">DAY 4-5 ｜ 8/30 (一) - 8/31 (二) 漢江秘境・樂天超市・滿載返程</h2>
-          <p class="text-xs text-amber-700 mt-0.5">脊骨湯開場 ➔ 百貨/樂園 ➔ 廣津橋 ➔ 樂天超市 1.5h ➔ 機場返台</p>
+          <h2 class="text-base md:text-lg font-black text-amber-950">DAY 4-5 ｜ 8/30 (日) - 8/31 (一) 明洞大創・樂天站前・滿載返程</h2>
+          <p class="text-xs text-amber-700 mt-0.5">脊骨湯 ➔ 明洞大創 12層 ➔ 廣津橋 ➔ 樂天 Outlet + 樂天超市 ➔ 機場返台</p>
         </div>
         <span class="text-2xl">🛍️</span>
       </div>
 
       <div class="relative timeline-line space-y-4">
         
-        <!-- Row 1 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bowl-food"></i>
@@ -535,27 +553,44 @@
           </div>
         </div>
 
-        <!-- Row 2 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
-            <i class="fa-solid fa-landmark"></i>
+            <i class="fa-solid fa-store"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
             <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
-              <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">11:30 - 14:30</span>
-              <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-medium">自由二選一</span>
+              <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">11:30 - 13:00</span>
+              <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">旗艦大創</span>
             </div>
-            <h3 class="font-bold text-slate-900 text-sm md:text-base">The Hyundai Seoul 現代百貨 或 樂天世界樂園</h3>
-            <p class="text-xs text-slate-600 mt-1">現代百貨（室內花園、地下潮牌美食） 或 蠶室樂天世界（室內外主題樂園與 Maple Land）。</p>
+            <h3 class="font-bold text-slate-900 text-sm md:text-base">明洞大創旗艦店（12層樓）</h3>
+            <p class="text-xs text-slate-600 mt-1">明洞站旁超狂整棟 12 層樓大創！美妝保養、聯名文具、生活好物超好買。</p>
             <div class="mt-3">
-              <a href="https://www.google.com/maps/search/?api=1&query=The+Hyundai+Seoul" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl font-bold transition">
+              <a href="https://www.google.com/maps/search/?api=1&query=Daiso+Myeongdong+Station+Branch" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl font-bold transition">
                 <i class="fa-solid fa-map-location-dot"></i> Google Maps 導航
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Row 3 -->
+        <div class="relative z-10 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
+            <i class="fa-solid fa-fire"></i>
+          </div>
+          <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
+              <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">13:15 - 14:30</span>
+              <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">午餐</span>
+            </div>
+            <h3 class="font-bold text-slate-900 text-sm md:text-base">無炊辛奇三層肉 明洞店 (무쇠김치삼겹)</h3>
+            <p class="text-xs text-slate-600 mt-1">鑄鐵大鍋現煎厚切五花肉，中心爆炒酸爽辛奇泡菜，香氣四溢。</p>
+            <div class="mt-3">
+              <a href="https://www.google.com/maps/search/?api=1&query=무쇠김치삼겹+명동점" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl font-bold transition">
+                <i class="fa-solid fa-map-location-dot"></i> Google Maps 導航
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-bridge"></i>
@@ -575,27 +610,28 @@
           </div>
         </div>
 
-        <!-- Row 4 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-cart-shopping"></i>
           </div>
           <div class="flex-1 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
             <div class="flex flex-wrap justify-between items-start gap-2 mb-1.5">
-              <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">17:30 - 19:00</span>
-              <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">採購 1.5h</span>
+              <span class="font-mono text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded">17:00 - 19:00</span>
+              <span class="text-xs bg-rose-100 text-rose-700 px-2 py-0.5 rounded-full font-medium">採購 (Outlet 1h + 超市 1h)</span>
             </div>
-            <h3 class="font-bold text-slate-900 text-sm md:text-base">首爾樂天超市 ZETTAPLEX 首爾站店 (1.5h)</h3>
-            <p class="text-xs text-slate-600 mt-1">零食、泡麵、伴手禮最後大採購！現場提供即時退稅與紙箱膠帶打包。</p>
-            <div class="mt-3">
+            <h3 class="font-bold text-slate-900 text-sm md:text-base">樂天 Outlet 首爾站店 + 樂天超市 ZETTAPLEX</h3>
+            <p class="text-xs text-slate-600 mt-1">首爾站同棟一次逛齊！Outlet 採購流行服裝鞋款，超市掃齊零食伴手禮並辦理即時退稅。</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <a href="https://www.google.com/maps/search/?api=1&query=Lotte+Outlets+Seoul+Station" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl font-bold transition">
+                <i class="fa-solid fa-map-location-dot"></i> 樂天 Outlet 地圖
+              </a>
               <a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Zettaplex+Seoul+Station" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl font-bold transition">
-                <i class="fa-solid fa-map-location-dot"></i> Google Maps 導航
+                <i class="fa-solid fa-map-location-dot"></i> 樂天超市 地圖
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Row 5 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-suitcase"></i>
@@ -610,7 +646,6 @@
           </div>
         </div>
 
-        <!-- Row 6 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-amber-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-train"></i>
@@ -621,7 +656,7 @@
               <span class="text-xs bg-sky-100 text-sky-700 px-2 py-0.5 rounded-full font-medium">機場鐵路 & 退稅</span>
             </div>
             <h3 class="font-bold text-slate-900 text-sm md:text-base">AREX ➔ 仁川機場 T1 報到、機台退稅、安檢</h3>
-            <p class="text-xs text-slate-600 mt-1">搭乘 AREX 直達/普通車前往機場，預留充分時間辦理機台電子退稅登錄與出境。</p>
+            <p class="text-xs text-slate-600 mt-1">搭乘 AREX 前往機場，預留充分時間辦理機台電子退稅登錄與出境。</p>
             <div class="mt-3">
               <a href="https://www.google.com/maps/search/?api=1&query=Incheon+International+Airport+Terminal+1" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl font-bold transition">
                 <i class="fa-solid fa-map-location-dot"></i> Google Maps 導航
@@ -630,7 +665,6 @@
           </div>
         </div>
 
-        <!-- Row 7 -->
         <div class="relative z-10 flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md">
             <i class="fa-solid fa-plane-arrival"></i>
@@ -641,7 +675,7 @@
               <span class="text-xs bg-emerald-600 text-white px-2 py-0.5 rounded-full font-medium">抵達台灣</span>
             </div>
             <h3 class="font-bold text-emerald-950 text-sm md:text-base">虎航 IT603 平安抵達桃園機場 T1</h3>
-            <p class="text-xs text-emerald-800 mt-1">平安返抵台灣，文、栗、派、恕、雷、傑 滿載美食回憶與戰利品結束精彩首爾行！</p>
+            <p class="text-xs text-emerald-800 mt-1">8/31 (一) 02:15 平安返抵台灣，文、栗、派、恕、雷、傑 滿載美食回憶與戰利品結束精彩首爾行！</p>
           </div>
         </div>
 
