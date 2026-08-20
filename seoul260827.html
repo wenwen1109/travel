@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首爾 5天4夜 經典潮流 & 美食饗宴 旅遊手冊</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        korea: {
+                            red: '#e11d48',
+                            blue: '#1d4ed8',
+                            dark: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .tab-btn.active {
+            background-color: #0284c7;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+        .day-tab.active {
+            border-color: #0284c7;
+            background-color: #f0f9ff;
+            color: #0369a1;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col pb-20 md:pb-10">
+
+    <!-- Sticky Top Navigation Banner -->
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur text-white shadow-md">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 flex items-center justify-center text-white shadow-lg">
+                    <i class="fa-solid fa-plane-departure text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-base md:text-lg font-bold tracking-tight flex items-center gap-2">
+                        首爾 5D4N 順路漫旅 <span class="bg-sky-500/20 text-sky-400 text-xs px-2 py-0.5 rounded-full border border-sky-400/30">弘大基地版</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">8/27 (五) - 8/31 (二) ｜ 6 位夥伴旅程</p>
+                </div>
+            </div>
+            <!-- Quick Member Avatars -->
+            <div class="hidden sm:flex items-center -space-x-2 overflow-hidden">
+                <span class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 bg-amber-500 text-white font-bold text-xs flex items-center justify-center" title="小栗">栗</span>
+                <span class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 bg-sky-500 text-white font-bold text-xs flex items-center justify-center" title="文文">文</span>
+                <span class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 bg-emerald-500 text-white font-bold text-xs flex items-center justify-center" title="小恕">恕</span>
+                <span class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 bg-purple-500 text-white font-bold text-xs flex items-center justify-center" title="雷雷">雷</span>
+                <span class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 bg-rose-500 text-white font-bold text-xs flex items-center justify-center" title="小傑">傑</span>
+                <span class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 bg-indigo-500 text-white font-bold text-xs flex items-center justify-center" title="派派">派</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Info Card -->
+    <section class="max-w-5xl mx-auto w-full px-4 pt-4">
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-3 text-xs md:text-sm">
+            <div class="flex items-center space-x-3 p-2 bg-slate-50 rounded-xl">
+                <i class="fa-solid fa-hotel text-sky-600 text-xl w-8 text-center"></i>
+                <div class="flex-1">
+                    <div class="font-bold text-slate-900">延禧洞精緻套房 (近弘大)</div>
+                    <div class="text-slate-500 text-xs truncate">西大門區延禧路2街204室</div>
+                </div>
+                <button onclick="copyText('首爾特別市西大門區延禧路2街204室')" class="text-xs bg-sky-100 text-sky-700 px-2 py-1 rounded hover:bg-sky-200 transition">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+            <div class="flex items-center space-x-3 p-2 bg-slate-50 rounded-xl">
+                <i class="fa-solid fa-plane-arrival text-indigo-600 text-xl w-8 text-center"></i>
+                <div>
+                    <div class="font-bold text-slate-900">去程航班 (仁川 T1)</div>
+                    <div class="text-slate-500 text-xs">8/27 23:30 抵達仁川機場</div>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3 p-2 bg-slate-50 rounded-xl">
+                <i class="fa-solid fa-plane-departure text-purple-600 text-xl w-8 text-center"></i>
+                <div>
+                    <div class="font-bold text-slate-900">回程航班 (虎航 IT603)</div>
+                    <div class="text-slate-500 text-xs">8/31 00:30 起飛 ➔ 02:15 抵桃機 T1</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="max-w-5xl mx-auto w-full px-4 mt-4">
+        <div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-none border-b border-slate-200">
+            <button onclick="switchMainTab('itinerary')" id="tab-itinerary" class="tab-btn active px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 whitespace-nowrap transition">
+                <i class="fa-solid fa-calendar-days"></i> 每日行程
+            </button>
+            <button onclick="switchMainTab('food')" id="tab-food" class="tab-btn bg-white text-slate-600 hover:bg-slate-50 px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 whitespace-nowrap transition border border-slate-200">
+                <i class="fa-solid fa-utensils"></i> 美食圖鑑
+            </button>
+            <button onclick="switchMainTab('packing')" id="tab-packing" class="tab-btn bg-white text-slate-600 hover:bg-slate-50 px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 whitespace-nowrap transition border border-slate-200">
+                <i class="fa-solid fa-clipboard-check"></i> 備忘錄 & 行李
+            </button>
+            <button onclick="switchMainTab('tips')" id="tab-tips" class="tab-btn bg-white text-slate-600 hover:bg-slate-50 px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 whitespace-nowrap transition border border-slate-200">
+                <i class="fa-solid fa-circle-info"></i> 實用指南 & 退稅
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-5xl mx-auto w-full px-4 mt-4 flex-1">
+
+        <!-- SECTION 1: ITINERARY (DEFAULT) -->
+        <div id="section-itinerary" class="space-y-4">
+            <!-- Day Sub-Filter Tabs -->
+            <div class="grid grid-cols-5 gap-1 md:gap-2 bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200">
+                <button onclick="switchDay(1)" id="day-tab-1" class="day-tab active py-2 rounded-xl text-center border-2 border-transparent transition">
+                    <div class="text-[10px] uppercase font-bold text-slate-400">8/27 (五)</div>
+                    <div class="text-xs md:text-sm font-extrabold">DAY 1</div>
+                </button>
+                <button onclick="switchDay(2)" id="day-tab-2" class="day-tab py-2 rounded-xl text-center border-2 border-transparent transition text-slate-600 hover:bg-slate-50">
+                    <div class="text-[10px] uppercase font-bold text-slate-400">8/28 (六)</div>
+                    <div class="text-xs md:text-sm font-extrabold">DAY 2</div>
+                </button>
+                <button onclick="switchDay(3)" id="day-tab-3" class="day-tab py-2 rounded-xl text-center border-2 border-transparent transition text-slate-600 hover:bg-slate-50">
+                    <div class="text-[10px] uppercase font-bold text-slate-400">8/29 (日)</div>
+                    <div class="text-xs md:text-sm font-extrabold">DAY 3</div>
+                </button>
+                <button onclick="switchDay(4)" id="day-tab-4" class="day-tab py-2 rounded-xl text-center border-2 border-transparent transition text-slate-600 hover:bg-slate-50">
+                    <div class="text-[10px] uppercase font-bold text-slate-400">8/30 (一)</div>
+                    <div class="text-xs md:text-sm font-extrabold">DAY 4</div>
+                </button>
+                <button onclick="switchDay(5)" id="day-tab-5" class="day-tab py-2 rounded-xl text-center border-2 border-transparent transition text-slate-600 hover:bg-slate-50">
+                    <div class="text-[10px] uppercase font-bold text-slate-400">8/31 (二)</div>
+                    <div class="text-xs md:text-sm font-extrabold">DAY 5</div>
+                </button>
+            </div>
+
+            <!-- DAY 1 CONTENT -->
+            <div id="day-content-1" class="day-content space-y-3">
+                <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-4 rounded-2xl shadow-md flex items-center justify-between">
+                    <div>
+                        <span class="bg-blue-500/30 text-blue-200 text-xs px-2.5 py-0.5 rounded-full font-bold">DAY 1 ｜ 8/27 (五)</span>
+                        <h2 class="text-lg font-bold mt-1">抵達首爾 ➔ 弘大宵夜夜宿</h2>
+                    </div>
+                    <i class="fa-solid fa-moon text-3xl opacity-30"></i>
+                </div>
+
+                <div class="space-y-2">
+                    <!-- Item 1 -->
+                    <div class="bg-white rounded-xl p-3.5 shadow-sm border border-slate-200 flex items-start space-x-3 hover:border-sky-300 transition">
+                        <input type="checkbox" class="mt-1 w-4 h-4 rounded text-sky-600 focus:ring-sky-500">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-outfit font-bold text-sky-700 text-xs bg-sky-50 px-2 py-0.5 rounded-md">23:30 - 00:40</span>
+                                <span class="text-[10px] bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-bold">交通 / 入境</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mt-1">抵達仁川國際機場 (T1 航廈)</h3>
+                            <p class="text-xs text-slate-500 mt-0.5">辦理入境手續、提取行李與啟用 eSIM / 行動網路。</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-white rounded-xl p-3.5 shadow-sm border border-slate-200 flex items-start space-x-3 hover:border-sky-300 transition">
+                        <input type="checkbox" class="mt-1 w-4 h-4 rounded text-sky-600 focus:ring-sky-500">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-outfit font-bold text-sky-700 text-xs bg-sky-50 px-2 py-0.5 rounded-md">00:40 - 01:40</span>
+                                <span class="text-[10px] bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full font-bold">接駁移動</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mt-1">機場直達 ➔ 弘大延禧洞住宿</h3>
+                            <p class="text-xs text-slate-500 mt-0.5">6 人建議現場分搭 2 台一般計程車或提前預訂 Kakao Jumbo Taxi（車程約 45–55 分鐘）。</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-white rounded-xl p-3.5 shadow-sm border border-slate-200 flex items-start space-x-3 hover:border-sky-300 transition">
+                        <input type="checkbox" class="mt-1 w-4 h-4 rounded text-sky-600 focus:ring-sky-500">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-outfit font-bold text-sky-700 text-xs bg-sky-50 px-2 py-0.5 rounded-md">01:40 ~</span>
+                                <span class="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-bold">美食宵夜</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mt-1">元村肉煎湯飯 (弘大店) 暖胃宵夜</h3>
+                            <p class="text-xs text-slate-500 mt-0.5">招牌辣燉豬肉、金黃現煎牛肉餅湯飯，24小時溫馨美味。</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="bg-white rounded-xl p-3.5 shadow-sm border border-slate-200 flex items-start space-x-3 hover:border-sky-300 transition">
+                        <input type="checkbox" class="mt-1 w-4 h-4 rounded text-sky-600 focus:ring-sky-500">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <span class="font-outfit font-bold text-sky-700 text-xs bg-sky-50 px-2 py-0.5 rounded-md">深夜</span>
+                                <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-bold">住宿</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mt-1">入住延禧洞精緻套房</h3>
+                            <p class="text-xs text-slate-500 mt-0.5">養精蓄銳，準備迎接明天豐富的江南與聖水行程！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 2 CONTENT -->
+            <div id="day-content-2" class="day-content space-y-3 hidden">
+                <div class="bg-gradient-to-r from-sky-800 to-teal-800 text-white p-4 rounded-2xl shadow-md flex items-center justify-between">
+                    <div>
+                        <span class="bg-sky-500/30 text-sky-200 text-xs px-2.5 py-0.5 rounded-full font-bold">DAY 2 ｜ 8/28 (六)</span>
+                        <h2 class="text-lg font-bold mt-1">江南潮流 ➔ 聖水探店 ➔ 弘大夜生活</h2>
+                    </div>
+                    <i class="fa-solid fa-bag-shopping text-3xl opacity-30"></i>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-white rounded-xl p-3.5 shadow-sm border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="font-outfit font-bold text-sky-700 text-xs bg-sky-50 px-2 py-0.5 rounded-md">11:30 - 13:00</span>
+                                <span class="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-bold">老饕必吃</span>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mt-1">江南麵屋 本店 (강남면옥)</h3>
+                            <p class="text-xs text-slate-500 mt-1">經典水冷麵、巨大無霸燉牛排骨，醬汁香濃滑嫩！</p>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Card: Standard Bread -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-rose-200 bg-rose-50/30 flex space-x-3">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjasavwsYq6yBXuMoJPNPdbEJAOnBP1YtJc4NmoWFxjUWdEzmz3wB4hIMX_UftGdOrYZ7dGN3Oc58QP5kk8JR0t-p2UIuhjkKJk1PnEj3LfXWa9AYOkaoQaKQ7FlSiiV2JL1ijfMxOnlepbAcryFo85P6WBmfirupz0GghPed9uudQihSnwOJzAIsbDwwkPlpMW6MhIx9E_YBN6nB39OmP-HtDJZiEdKdrnoT22csv47HF4W6LdneF0IdV2SO9ynUO_kl4W-MsPXbJD-MNRoU5lvtIkKa2NVpLwA=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="Standard Bread">
+                        <div class="flex-1 text-xs">
+                            <span class="bg-rose-500 text-white font-bold text-[10px] px-1.5 py-0.5 rounded">NEW 新增</span>
+                            <h4 class="font-bold text-slate-900 mt-1">Standard Bread (14:30-16:30)</h4>
+                            <p class="text-slate-600 text-[11px] mt-0.5">聖水洞超狂熱門排隊現烤香濃手撕吐司！</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-3.5 shadow-sm border border-slate-200">
+                        <div class="flex items-center justify-between">
+                            <span class="font-outfit font-bold text-sky-700 text-xs bg-sky-50 px-2 py-0.5 rounded-md">16:30 - 17:45</span>
+                            <span class="text-[10px] bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full font-bold">聖水名店</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 mt-1">陵洞水芹菜 聖水洞店</h3>
+                        <p class="text-xs text-slate-500 mt-1">招牌新鮮水芹牛肉湯、鮮嫩生拌牛肉飯、牛肉煎餅。</p>
+                    </div>
+
+                    <!-- Highlight Card: 짚뿔닭발 -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-amber-200 bg-amber-50/30 flex space-x-3">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjav5_lYItvS-r-vLAoh3oo9pkAzhwCPmPTHfZBD057WYLF5D-XDGy1KxngT9fz8gG6eR0AvTH1cbBpABrffn_B3E6KT9Cyg38V6b8AKu_syR25v-H7-SeQF7QtOVqh8uQmFcq3WH_kDK4jRAbcA_HnmTlXaaJCuwXNY56TwEZOk82hIciUK0Ek6T60Vts4pFXiiu_0HgBGcODNLoXihUAlxl30kNHj7v1Bk5L879krOir5X2j1bz16weVlJeKWkITNfOYgKCbNaWrUeRNHP_5dYkn0_zbKh5cXQ=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="짚뿔닭발">
+                        <div class="flex-1 text-xs">
+                            <span class="bg-amber-500 text-white font-bold text-[10px] px-1.5 py-0.5 rounded">NEW 新增</span>
+                            <h4 class="font-bold text-slate-900 mt-1">짚뿔닭발 稻草炭烤辣雞爪 (19:30)</h4>
+                            <p class="text-slate-600 text-[11px] mt-0.5">爆紅稻草香烤辣雞爪、大腸，搭配冰涼啤酒絕配！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 3 CONTENT -->
+            <div id="day-content-3" class="day-content space-y-3 hidden">
+                <div class="bg-gradient-to-r from-orange-800 to-amber-800 text-white p-4 rounded-2xl shadow-md flex items-center justify-between">
+                    <div>
+                        <span class="bg-orange-500/30 text-orange-200 text-xs px-2.5 py-0.5 rounded-full font-bold">DAY 3 ｜ 8/29 (日)</span>
+                        <h2 class="text-lg font-bold mt-1">傳統韓屋 ➔ 叮叮車 ➔ 益善洞 ➔ 韓牛饗宴</h2>
+                    </div>
+                    <i class="fa-solid fa-utensils text-3xl opacity-30"></i>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <!-- Tosokchon -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-slate-200 flex space-x-3">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjasBrlFuG7ohnStPOVjwG0ZmtUCh3Bz_O_H-aFU9UEIXgy_nnl2qkyBwqLw6jctXS3xGLhn6Ere6OJ4vxwKBsVXufzqhRKsAwc9HbXsWSHnnpinL3z2xM4qz5onSMU4FzJjbqAShLBaHadvtB7gjlwWQonGNmrYseiNDCCsYmwZ_6fhY5CmsUA64Om3cmxw-JfXecUQTV25uW_oVbBiKd4lluQJeJ6TVF5D-GMNzx_Lv8ym7D6wxDzDsncl6g5bS7K26xa-UNvHVaariVIdmVIo07KjHQJDJZaI=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="土俗村">
+                        <div class="flex-1 text-xs">
+                            <span class="font-outfit font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">09:30 - 11:00</span>
+                            <h4 class="font-bold text-slate-900 mt-1">土俗村蔘雞湯 (토속촌)</h4>
+                            <p class="text-slate-500 text-[11px] mt-0.5">景福宮名店，濃郁人蔘雞湯滋補上桌！</p>
+                        </div>
+                    </div>
+
+                    <!-- We Ride -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-slate-200 flex space-x-3">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjavsFk934LP4sQKF1Kz5mybGE0K-1a2GHwsgghbUoKYcXTi5LdymEm4MDWs5u634Oe45JSsNagLx8WRmQcaVdaWlbvMsx9xhEX4dHXG_vp4o6zWAW2nmwCEsY1y4BHkbjQ-PwWtrKhT-o1KQ6JpUAslIq4j-LMkagvEWrqdSKqL2_iGwsAv5xfYnRLHeIRVeKGNLS_ey7r98eb1mk1yR9BeFth9DTInRiqvHa1DluPy5IqxfjFQMNy69FNztXmH9MlVFGGrRJcGv_Pfu-5dq7gbFUW2QlZWbTdY=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="We Ride">
+                        <div class="flex-1 text-xs">
+                            <span class="font-outfit font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">11:00 - 12:30</span>
+                            <h4 class="font-bold text-slate-900 mt-1">We Ride 超可愛城市叮叮車</h4>
+                            <p class="text-slate-500 text-[11px] mt-0.5">電車專人導覽穿梭景福宮與西村老街巷弄。</p>
+                        </div>
+                    </div>
+
+                    <!-- Rain Report -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-slate-200 flex space-x-3">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjatFn3WDiJi8ReZ35wGLQxaPG2gGHE4mlnkfDndC09YfCrI5DMTrFk03JT9LAidb05BMsR8jPgcMFbl3jKAmj_J28r8jdLIpsAcyIKxoewSHaCcWu0iMNvdYyYfgjRlIIWdVTugi54hCDIes8HxCpPuMxBtg5Hj7GEOFqEyKWbdmpXjv8tJPwsFug-Q8kzWBiy3CGEOgBurzxaENTwxRJ5eqmrnd1rwUhtVf-I35Jat114MrdEIlzIHIiyvtYrSzTDZlUiajQhnopalm54Q_0yX1a7CMfqa8tHY=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="Rain Report">
+                        <div class="flex-1 text-xs">
+                            <span class="font-outfit font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">14:45 - 16:15</span>
+                            <h4 class="font-bold text-slate-900 mt-1">Rain Report Rainbow 雨景咖啡館</h4>
+                            <p class="text-slate-500 text-[11px] mt-0.5">益善洞韓屋造景雨景咖啡廳，絕美打卡景點！</p>
+                        </div>
+                    </div>
+
+                    <!-- 明洞無炊金平 -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-slate-200 flex space-x-3">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjateDawUnUTMFU_ZxZxGySV3OqcZLqX_xotj1Ob29Tdb2kbL60XfUnoEosMW6OW6dUgkViK6NVJX058pL8x1Y8yCBL9k98CH8_0LcQcwW9YgxTdVgNi_2Zd8oYTdtOv44GJkNS6AZTjWmcVMTFoqU2qmhP7hwiqYieuM-ejbsg1Q4XVzlDGN-8_UMnNEvj4Yu811buul-0nIPSi91C8GjmY_-NvXEGWvBnH7jKxf0HM12z-CkcCmLC3iQIdlu-IkgQx51RTh0NBZEe2DMVKyeY4IEUllLDf02Sc=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="明洞無炊金平">
+                        <div class="flex-1 text-xs">
+                            <span class="font-outfit font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">18:45 - 20:30</span>
+                            <h4 class="font-bold text-slate-900 mt-1">明洞無炊金平三層肉 / 韓牛</h4>
+                            <p class="text-slate-500 text-[11px] mt-0.5">鑄鐵大鍋爆炒辛奇韓式烤五花肉，油香滑嫩！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 4 CONTENT -->
+            <div id="day-content-4" class="day-content space-y-3 hidden">
+                <div class="bg-gradient-to-r from-emerald-800 to-teal-800 text-white p-4 rounded-2xl shadow-md flex items-center justify-between">
+                    <div>
+                        <span class="bg-emerald-500/30 text-emerald-200 text-xs px-2.5 py-0.5 rounded-full font-bold">DAY 4 ｜ 8/30 (一)</span>
+                        <h2 class="text-lg font-bold mt-1">漢江秘境 ➔ 樂天/百貨 ➔ 機場退稅返程</h2>
+                    </div>
+                    <i class="fa-solid fa-water text-3xl opacity-30"></i>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <!-- 24h 脊骨湯 -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-slate-200 flex space-x-3">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjavAOLqoc6aNZ7f5mwoq2hrAGX0b72Qe1K9sJ5w-P05WRhxh_S0m1OMnK7mP6wx3kwuhAI4rU566gA_GYp0KjZt-Xl90gs9C969w74o-SwK-zVphnKViYfgY77z5OHe8CFrMy9YcfXOSpHKUz8F4lz0pgLaK3FxFxbV_4OtZ9BLKckzVZ-LrgOiM7iq3HEaNeUNB3qxaHXfhMFtiFwiu0jl9I-hwoW_GWOh07knP2efllM1ZHl2kaSZLE0QI6ChQDjdgNt1iNLbftJ0PA1ior2ZYp1qDRQlIF1Q=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="24h脊骨湯">
+                        <div class="flex-1 text-xs">
+                            <span class="font-outfit font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">09:30 - 11:00</span>
+                            <h4 class="font-bold text-slate-900 mt-1">漢南洞 24h 泡菜脊骨湯</h4>
+                            <p class="text-slate-500 text-[11px] mt-0.5">香濃泡菜燉大脊骨，肉質燉至軟嫩化口。</p>
+                        </div>
+                    </div>
+
+                    <!-- 樂天世界 / 現代百貨 -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-slate-200 flex space-x-3">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjatOKg4YjWHENu2s7prhOIFxjpuxZQMcZH96GJ_rkVyeeFEfDVuY7kJkn6yzGo7W-coEzo7cpvq1YvhXBKQ93jM-fqKnYFzQ3CYJ_AHL93Uk0ZQI2i4m9X0E6kUmBXMp6ykhnSyiOZUwHSnYQWm6YWwKXIUTi1WPda9JeuO4kVrUHoRRt7nLBBsKtLxRGdfhR_m-QylfeauTL2gIUDKpbMLEXP9DGnaYgRqBmuaqebkcICozEYxE6wbvuJoFpVIP2m5BvQmgo6x3KLWgfIbSUXbWdXS8FrY7cw=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="樂天世界">
+                        <div class="flex-1 text-xs">
+                            <span class="font-outfit font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">11:30 - 15:30</span>
+                            <h4 class="font-bold text-slate-900 mt-1">The Hyundai 或 樂天世界</h4>
+                            <p class="text-slate-500 text-[11px] mt-0.5">現代百貨潮流購物 或 樂天 Maple Land 暢玩！</p>
+                        </div>
+                    </div>
+
+                    <!-- 廣津橋 8 街 -->
+                    <div class="bg-white rounded-xl p-3 shadow-sm border border-slate-200 flex space-x-3 md:col-span-2">
+                        <img src="https://lh3.googleusercontent.com/gg/ACRwjasFATCSLabu4z5pOO0wWYcp4TnZdxnlFyYLaJAlm02XnEyDvUGBgki5J3linVgVS92v_DPlrhIBcif7ubUewftUPEzIG1FCJhVuJDXGixtqnL8U24ClOWjGPB9VjWROhvnNqf76azIBozEDjlI3ZhWJWu0zLZNa9WfU9OPCj4gRqsmpCAtKzL1juFhoiJvJ744RNVLrJwox-BU-Bp1lRa2FgX1A0iPau2KupECFIC-rkWyzzYrXC1akJlQ_hWnSAvT6DL9iwORxPV5r53Q46yYSy3n9L9H5og=s0" class="w-20 h-20 rounded-lg object-cover flex-shrink-0" alt="廣津橋8街">
+                        <div class="flex-1 text-xs">
+                            <span class="font-outfit font-bold text-sky-700 bg-sky-50 px-1.5 py-0.5 rounded">16:00 - 17:30</span>
+                            <h4 class="font-bold text-slate-900 mt-1">廣津橋 8 街 (Riverview 8th)</h4>
+                            <p class="text-slate-500 text-[11px] mt-0.5">本地人私房秘境！懸空於漢江橋下的透明玻璃觀景台與咖啡廳。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 5 CONTENT -->
+            <div id="day-content-5" class="day-content space-y-3 hidden">
+                <div class="bg-gradient-to-r from-purple-900 to-indigo-900 text-white p-4 rounded-2xl shadow-md flex items-center justify-between">
+                    <div>
+                        <span class="bg-purple-500/30 text-purple-200 text-xs px-2.5 py-0.5 rounded-full font-bold">DAY 5 ｜ 8/31 (二)</span>
+                        <h2 class="text-lg font-bold mt-1">班機平安抵達臺灣</h2>
+                    </div>
+                    <i class="fa-solid fa-plane-landing text-3xl opacity-30"></i>
+                </div>
+
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 text-center space-y-3">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-900 text-base">虎航 IT603 航班</h3>
+                    <p class="text-xs text-slate-500">起飛：00:30 (仁川機場 T1) ➔ 抵達：02:15 (臺灣桃園國際機場 T1)</p>
+                    <div class="text-sm font-bold text-emerald-600 bg-emerald-50 py-2 px-4 rounded-xl inline-block">
+                        🎉 祝小栗、文文、小恕、雷雷、小傑、派派 旅途平安圓滿滿載而歸！
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: FOOD GUIDE -->
+        <div id="section-food" class="hidden space-y-3">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+                <h3 class="font-bold text-base text-slate-900 mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-orange-500"></i> 行程精選老饕美食名單
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <div class="font-bold text-slate-900 text-sm">Standard Bread 吐司</div>
+                        <div class="text-slate-500">聖水洞現烤香濃手撕吐司</div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <div class="font-bold text-slate-900 text-sm">土俗村蔘雞湯</div>
+                        <div class="text-slate-500">景福宮站滋補蔘雞湯</div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <div class="font-bold text-slate-900 text-sm">짚뿔닭발 炭烤辣雞爪</div>
+                        <div class="text-slate-500">稻草炭香辣雞爪與烤大腸</div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <div class="font-bold text-slate-900 text-sm">Rain Report 咖啡館</div>
+                        <div class="text-slate-500">益善洞雨景韓屋氛圍感咖啡</div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <div class="font-bold text-slate-900 text-sm">明洞無炊金平三層肉</div>
+                        <div class="text-slate-500">鑄鐵大鍋爆炒辛奇五花肉</div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <div class="font-bold text-slate-900 text-sm">漢南洞 24h 泡菜脊骨湯</div>
+                        <div class="text-slate-500">濃郁泡菜大脊骨湯</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: PACKING CHECKLIST -->
+        <div id="section-packing" class="hidden space-y-3">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 space-y-3">
+                <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-スーツケース text-sky-600"></i> 行李打包檢查清單
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                    <label class="flex items-center space-x-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                        <input type="checkbox" class="rounded text-sky-600">
+                        <span>護照正本 (效期 6 個月以上)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                        <input type="checkbox" class="rounded text-sky-600">
+                        <span>韓國電子入境卡 / K-ETA 憑證</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                        <input type="checkbox" class="rounded text-sky-600">
+                        <span>T-money 交通卡 & 韓元現金</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                        <input type="checkbox" class="rounded text-sky-600">
+                        <span>韓國德規轉接頭 (4.8mm 圓插)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                        <input type="checkbox" class="rounded text-sky-600">
+                        <span>eSIM 或 SIM 卡設定完成</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100">
+                        <input type="checkbox" class="rounded text-sky-600">
+                        <span>個人常備藥品 & 防曬雨具</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: PRACTICAL TIPS -->
+        <div id="section-tips" class="hidden space-y-3">
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-200 space-y-3 text-xs">
+                <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-receipt text-emerald-600"></i> 仁川機場退稅步驟指南
+                </h3>
+                <ol class="list-decimal list-inside space-y-2 text-slate-700 leading-relaxed">
+                    <li><strong>購物索取退稅單：</strong>單筆消費滿 15,000 韓元，結帳時出示護照索取 Tax Free 單據。</li>
+                    <li><strong>機場自助機台登錄：</strong>抵達仁川 T1 托運行李前，至自助退稅機台掃描護照與退稅單條碼。</li>
+                    <li><strong>安檢出境提領現金：</strong>完成出境審查後，前往 **28 號登機門** 附近的退稅櫃檯提領韓元或台幣現金。</li>
+                </ol>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-xs py-2 px-4 rounded-full shadow-lg opacity-0 transition duration-300 pointer-events-none">
+        已複製到剪貼簿！
+    </div>
+
+    <!-- JavaScript Navigation Logic -->
+    <script>
+        function switchMainTab(tabName) {
+            // Hide all sections
+            ['itinerary', 'food', 'packing', 'tips'].forEach(s => {
+                document.getElementById('section-' + s).classList.add('hidden');
+                document.getElementById('tab-' + s).classList.remove('active');
+                document.getElementById('tab-' + s).classList.add('bg-white', 'text-slate-600');
+            });
+
+            // Show selected section
+            document.getElementById('section-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('bg-white', 'text-slate-600');
+        }
+
+        function switchDay(dayNum) {
+            // Hide all day contents
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('day-content-' + i).classList.add('hidden');
+                const tab = document.getElementById('day-tab-' + i);
+                tab.classList.remove('active');
+                tab.classList.add('text-slate-600');
+            }
+
+            // Show active day content
+            document.getElementById('day-content-' + dayNum).classList.remove('hidden');
+            const activeTab = document.getElementById('day-tab-' + dayNum);
+            activeTab.classList.add('active');
+            activeTab.classList.remove('text-slate-600');
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.remove('opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('opacity-0');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+```
+
+### 🌟 網頁亮點特色：
+* **獨立流暢頁籤區塊**：可在「每日行程」、「美食圖鑑」、「打包清單」、「退稅指南」間快速切換。
+* **打卡勾選機制**：景點與備忘錄支援動態打卡勾選。
+* **一鍵複製地址**：點擊複製按鈕可快速複製韓國民宿地址。
