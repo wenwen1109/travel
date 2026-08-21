@@ -59,7 +59,6 @@
     margin-left: 8px;
   }
 
-  /* 頁籤控制項 (Tabs) */
   .nav-tabs { display: flex; gap: 10px; }
   .tab-btn {
     background: rgba(255, 255, 255, 0.08);
@@ -85,7 +84,6 @@
   }
   .tab-panel.active { display: flex; }
 
-  /* 橫向 9 欄看板 */
   .board-container {
     display: flex;
     gap: 16px;
@@ -145,6 +143,7 @@
   .tag-member { background: #e0e7ff; color: #3730a3; padding: 1px 6px; border-radius: 4px; font-size: 11px; font-weight: 700; }
   .price-tag { background: #fef3c7; color: #b45309; padding: 1px 5px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-left: 3px; }
   .meal-tag { background: #ecfdf5; color: #065f46; padding: 1px 5px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .spa-tag { background: #e0f2fe; color: #0284c7; padding: 1px 5px; border-radius: 4px; font-size: 11px; font-weight: 700; }
   .tag-drive { background: var(--tag-drive-bg); color: var(--tag-drive-text); }
   .tag-flight { background: var(--tag-flight-bg); color: var(--tag-flight-text); }
   .tag-balloon { background: var(--tag-balloon-bg); color: var(--tag-balloon-text); }
@@ -167,7 +166,6 @@
     color: var(--tag-stay-text);
   }
 
-  /* 航班分頁（桌面寬版表格） */
   .flight-table-wrapper {
     background: var(--card-bg);
     border-radius: 14px;
@@ -213,7 +211,6 @@
     </div>
   </div>
 
-  <!-- TAB 1: 橫向 9 欄看板 -->
   <div id="desk-tab-board" class="tab-panel active">
     <div class="board-container">
 
@@ -342,27 +339,31 @@
         </div>
         <div class="column-body">
           <div class="time-card">
-            <div class="card-top"><span class="time-badge">01:15 - 03:00</span><span class="tag-drive">取車入住</span></div>
-            <div class="card-desc">ASR 取車 ➔ 自駕前往哥雷目洞穴飯店補眠 🚗 60分 (75 km)</div>
+            <div class="card-top"><span class="time-badge">01:15 - 03:00</span><span class="tag-drive">入住小憩</span></div>
+            <div class="card-desc">ASR 取車 ➔ 自駕至 Caravanserai Inn 洗漱小憩 🚗 60分</div>
           </div>
           <div class="time-card">
             <div class="card-top"><span class="time-badge">05:00 - 08:30</span><span class="tag-balloon">熱氣球 1</span></div>
-            <div class="card-desc"><strong>熱氣球【窗口 1】</strong>（或露台看球、補眠至自然醒）</div>
+            <div class="card-desc"><strong>熱氣球【窗口 1】</strong>（Caravanserai Inn 門口接送）</div>
           </div>
           <div class="time-card">
-            <div class="card-top"><span class="time-badge">09:30 - 12:30</span><span class="price-tag">€20</span></div>
+            <div class="card-top"><span class="time-badge">08:30 - 12:00</span><span class="card-tag">房間補眠</span></div>
+            <div class="card-desc"><strong>返回 Caravanserai Inn 房間舒適大睡補眠 🛌</strong></div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">12:00 - 13:30</span><span class="meal-tag">🍽️ 午餐預留</span></div>
+            <div class="card-desc">哥雷目小鎮特色餐廳享用燒烤午餐（1.5 小時）</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">13:30 - 16:30</span><span class="price-tag">€20</span></div>
             <div class="card-desc">參觀<strong>哥雷目露天博物館</strong>千年洞穴教堂壁畫 🚗 2 km</div>
           </div>
           <div class="time-card">
-            <div class="card-top"><span class="time-badge">12:30 - 14:00</span><span class="meal-tag">🍽️ 午餐預留</span></div>
-            <div class="card-desc">特色洞穴餐廳享用土耳其燒烤料理（1.5 小時）</div>
-          </div>
-          <div class="time-card">
-            <div class="card-top"><span class="time-badge">14:00 - 17:30</span><span class="price-tag">€12</span></div>
+            <div class="card-top"><span class="time-badge">16:30 - 18:30</span><span class="price-tag">€12</span></div>
             <div class="card-desc">烏奇沙城堡、帕夏貝蘑菇谷、駱駝岩拍攝 🚗 15 km</div>
           </div>
           <div class="time-card">
-            <div class="card-top"><span class="time-badge">17:30 - 19:30</span><span class="card-tag">夕陽美景</span></div>
+            <div class="card-top"><span class="time-badge">18:30 - 19:30</span><span class="card-tag">夕陽美景</span></div>
             <div class="card-desc">Sunset Point 賞日落 ➔ 俯瞰哥雷目奇岩全景</div>
           </div>
           <div class="time-card">
@@ -370,7 +371,7 @@
             <div class="card-desc">享用道地火焰瓦罐燉牛肉（Testi Kebab）（2 小時）</div>
           </div>
         </div>
-        <div class="column-footer">🏨 宿：卡帕多奇亞特色洞穴飯店</div>
+        <div class="column-footer">🏨 宿：Caravanserai Inn Hotel</div>
       </div>
 
       <!-- Day 5 -->
@@ -406,10 +407,10 @@
           </div>
           <div class="time-card">
             <div class="card-top"><span class="time-badge">19:30 - 21:30</span><span class="meal-tag">🍽️ 晚餐預留</span></div>
-            <div class="card-desc">享用晚餐並整理行李準備次日西行（2 小時）</div>
+            <div class="card-desc">享用特色晚餐並整理行李準備次日西行（2 小時）</div>
           </div>
         </div>
-        <div class="column-footer">🏨 宿：卡帕多奇亞特色洞穴飯店</div>
+        <div class="column-footer">🏨 宿：Caravanserai Inn Hotel</div>
       </div>
 
       <!-- Day 6 -->
@@ -454,8 +455,8 @@
       <!-- Day 7 -->
       <div class="day-column">
         <div class="column-header">
-          <div class="day-title">Day 7 ｜ 9/25 (五) <span>湖區放鬆</span></div>
-          <div class="day-subtitle">孔亞 ➔ 埃爾迪爾湖 ➔ 溶洞 ➔ 棉花堡</div>
+          <div class="day-title">Day 7 ｜ 9/25 (五) <span>希拉波利斯＋溫泉</span></div>
+          <div class="day-subtitle">古羅馬劇場 ➔ 白色石灰棚溫泉泡湯</div>
         </div>
         <div class="column-body">
           <div class="time-card">
@@ -476,18 +477,22 @@
           </div>
           <div class="time-card">
             <div class="card-top"><span class="time-badge">14:50 - 15:30</span><span class="tag-drive">自駕第 3 段</span></div>
-            <div class="card-desc"><strong>卡卡利克 ➔ 棉花堡飯店</strong> 🚗 35 分 (30 km)</div>
+            <div class="card-desc"><strong>卡卡利克 ➔ 棉花堡景區</strong> 🚗 35 分 (30 km)</div>
           </div>
           <div class="time-card">
-            <div class="card-top"><span class="time-badge">15:30 - 19:00</span><span class="price-tag">€30</span></div>
-            <div class="card-desc">漫步<strong>棉花堡白色石灰棚梯田</strong>賞夕陽與古羅馬遺跡</div>
+            <div class="card-top"><span class="time-badge">15:30 - 16:30</span><span class="price-tag">聯票內含</span></div>
+            <div class="card-desc">探索**希拉波利斯古羅馬大劇場（Hierapolis）** 萬人看台俯瞰棉堡全景</div>
+          </div>
+          <div class="time-card">
+            <div class="card-top"><span class="time-badge">16:30 - 19:00</span><span class="spa-tag">♨️ 梯田溫泉泡湯</span></div>
+            <div class="card-desc"><strong>棉花堡白色石灰棚天然溫泉池泡湯體驗 ♨️</strong>（赤足踏水、梯田泡溫泉賞夕陽） <span class="price-tag">€30</span></div>
           </div>
           <div class="time-card">
             <div class="card-top"><span class="time-badge">19:00 - 21:30</span><span class="meal-tag">🍽️ 晚宴預留</span></div>
-            <div class="card-desc">享用飯店豐盛晚餐，享受天然溫泉水療（2.5 小時）</div>
+            <div class="card-desc">入住棉花堡卡亞溫泉飯店，享用一泊二食晚餐與 SPA 泡湯（2 小時）</div>
           </div>
         </div>
-        <div class="column-footer">🏨 宿：棉花堡溫泉度假飯店（日自駕 330km）</div>
+        <div class="column-footer">🏨 宿：棉花堡卡亞溫泉飯店 (Pamukkale Kaya Termal Otel)</div>
       </div>
 
       <!-- Day 8 -->
@@ -499,7 +504,7 @@
         <div class="column-body">
           <div class="time-card">
             <div class="card-top"><span class="time-badge">08:30 - 11:00</span><span class="tag-drive">自駕第 1 段</span></div>
-            <div class="card-desc"><strong>棉花堡 ➔ 以弗所古城</strong> 🚗 2.5 小時 (185 km)</div>
+            <div class="card-desc">享用飯店早餐後退房出發 ➔ <strong>棉花堡 ➔ 以弗所古城</strong> 🚗 2.5 小時 (185 km)</div>
           </div>
           <div class="time-card">
             <div class="card-top"><span class="time-badge">11:00 - 14:30</span><span class="meal-tag">🍽️ 午餐預留</span></div>
@@ -542,11 +547,11 @@
           </div>
           <div class="time-card">
             <div class="card-top"><span class="time-badge">10:40 - 12:00</span><span class="tag-flight">TK2313</span></div>
-            <div class="card-desc"><strong>搭乘 TK2313（ADB ✈️ IST）</strong>（B777 / 1h 20m 飛抵伊斯坦堡）[cite: 1]</div>
+            <div class="card-desc"><strong>搭乘 TK2313（ADB ✈️ IST）</strong>（B777 / 1h 20m 飛抵伊斯坦堡）</div>
           </div>
           <div class="time-card">
             <div class="card-top"><span class="time-badge">12:00 - 15:55</span><span class="meal-tag">🍽️ 機場午餐</span></div>
-            <div class="card-desc">IST 機場轉機、退稅、享用午餐與免稅店採買（充裕 3h 55m）[cite: 1]</div>
+            <div class="card-desc">IST 機場轉機、退稅、享用午餐與免稅店採買（充裕 3h 55m）</div>
           </div>
           <div class="time-card">
             <div class="card-top"><span class="time-badge">15:55 - 08:10(+1)</span><span class="tag-flight">TK124 直飛</span></div>
@@ -597,7 +602,7 @@
             <td>香港 (HKG) ➔ 伊斯坦堡 (IST)</td>
             <td><strong style="color:var(--primary);">08:55 ➔ 15:20</strong></td>
             <td>11 小時 25 分</td>
-            <td><strong>第二組</strong> 抵達 IST，17:30 專車抵達舊城飯店與文、栗會合[cite: 1]</td>
+            <td><strong>第二組</strong> 抵達 IST，17:30 專車抵達舊城飯店與文、栗會合</td>
           </tr>
           <tr>
             <td><strong>9/21–9/22</strong></td>
@@ -608,7 +613,7 @@
             <td>伊斯坦堡亞洲側 (SAW) ➔ 開塞利 (ASR)</td>
             <td><strong style="color:var(--primary);">23:55 ➔ 01:15(+1)</strong></td>
             <td>1 小時 20 分</td>
-            <td><strong>提早一晚直飛卡帕</strong>，爭取 9/22–9/24 滿滿 3 個清晨熱氣球窗口！</td>
+            <td><strong>提早一晚直飛卡帕</strong>，入住 Caravanserai Inn，爭取 9/22–9/24 滿滿 3 個清晨熱氣球窗口！</td>
           </tr>
           <tr>
             <td><strong>9/27 (日)</strong></td>
@@ -619,7 +624,7 @@
             <td>伊茲米爾 (ADB) ➔ 伊斯坦堡 (IST)</td>
             <td><strong style="color:var(--primary);">10:40 ➔ 12:00</strong></td>
             <td>1 小時 20 分</td>
-            <td>ADB 機場還車後飛抵 IST，預留 <strong>3 小時 55 分</strong> 轉機出境時間[cite: 1]</td>
+            <td>ADB 機場還車後飛抵 IST，預留 <strong>3 小時 55 分</strong> 轉機出境時間</td>
           </tr>
           <tr>
             <td><strong>9/27 (日)</strong></td>
