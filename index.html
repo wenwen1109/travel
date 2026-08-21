@@ -54,7 +54,6 @@
     font-weight: 600;
   }
   
-  /* 頁籤控制項 (Tabs) */
   .nav-tabs {
     display: flex;
     background: #0b1120;
@@ -83,7 +82,6 @@
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  /* 航班表頁面樣式 */
   .flight-panel { padding: 20px 16px; }
   .flight-card {
     background: #fafbfc;
@@ -119,7 +117,6 @@
   }
   .flight-detail { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
 
-  /* 時間軸樣式 */
   .timeline { padding: 24px 16px; }
   .day-card {
     position: relative;
@@ -197,6 +194,16 @@
     font-weight: 700;
     margin-right: 4px;
   }
+  .spa-tag {
+    display: inline-block;
+    font-size: 11px;
+    background: #e0f2fe;
+    color: #0284c7;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-left: 4px;
+  }
   .drive-tag {
     display: inline-block;
     font-size: 11px;
@@ -253,7 +260,7 @@
   <div class="header">
     <h1>🇹🇷 土耳其 9 天 8 夜經典自駕行程</h1>
     <p>2026/09/19 (六) – 2026/09/27 (日)</p>
-    <div class="members-badge">👥 成員：第一組（文、栗）｜ 第二組（昌、閔）</div>
+    <div class="members-badge">👥 第一組（文、栗）｜ 第二組（昌、閔）</div>
   </div>
 
   <div class="nav-tabs">
@@ -261,7 +268,6 @@
     <div class="tab-btn" onclick="switchTab('flights')">✈️ 全部航班總表</div>
   </div>
 
-  <!-- TAB 1: 每日行程 -->
   <div id="tab-itinerary" class="tab-content active">
     <div class="timeline">
       <!-- Day 1 -->
@@ -333,14 +339,15 @@
         </div>
         <div class="item-list">
           <div class="item"><div class="item-time">01:15 - 02:00</div><div class="item-desc">抵達 ASR 機場提領行李、<strong>辦理租車取車手續 🚗</strong></div></div>
-          <div class="item"><div class="item-time">02:00 - 03:00</div><div class="item-desc"><strong>自駕前往哥雷目（Göreme）</strong> 特色洞穴飯店入住補眠休息 <span class="drive-tag">🚗 車程約 60 分 (75 km)</span></div></div>
-          <div class="item"><div class="item-time">05:00 - 08:30</div><div class="item-desc"><strong>清晨熱氣球升空體驗 🎈【飛行窗口 1】</strong>：亦可在露台悠閒看球補眠 <span class="balloon-tag">🎈 飛行窗口 1</span></div></div>
-          <div class="item"><div class="item-time">09:30 - 12:30</div><div class="item-desc">參觀<strong>哥雷目露天博物館（Göreme OAM）</strong> <span class="price-tag">🎫 €20/人</span> <span class="drive-tag">🚗 2 km</span></div></div>
-          <div class="item"><div class="item-time">12:30 - 14:00</div><div class="item-desc"><span class="meal-tag">🍽️ 午餐預留</span>特色洞穴餐廳享用土耳其燒烤料理（1.5 小時）</div></div>
-          <div class="item"><div class="item-time">14:00 - 17:30</div><div class="item-desc">探訪烏奇沙城堡、**帕夏貝蘑菇谷（Paşabağ）**拍攝 <span class="price-tag">🎫 €12/人</span> <span class="drive-tag">🚗 15 km</span></div></div>
-          <div class="item"><div class="item-time">17:30 - 19:30</div><div class="item-desc">至 Sunset Point 欣賞日落晚霞，俯瞰哥雷目奇岩全景</div></div>
+          <div class="item"><div class="item-time">02:00 - 03:00</div><div class="item-desc"><strong>自駕至 Caravanserai Inn 入住</strong> 洗漱小憩 1.5 小時 <span class="drive-tag">🚗 60 分 (75 km)</span></div></div>
+          <div class="item"><div class="item-time">05:00 - 08:30</div><div class="item-desc"><strong>清晨熱氣球升空體驗 🎈【飛行窗口 1】</strong>（Caravanserai Inn 門口接送） <span class="balloon-tag">🎈 飛行窗口 1</span></div></div>
+          <div class="item"><div class="item-time">08:30 - 12:00</div><div class="item-desc"><strong>返回 Caravanserai Inn 房間舒適睡覺補眠 🛌</strong>（不需退房換房）</div></div>
+          <div class="item"><div class="item-time">12:00 - 13:30</div><div class="item-desc"><span class="meal-tag">🍽️ 午餐預留</span>哥雷目小鎮享用燒烤午餐（1.5 小時）</div></div>
+          <div class="item"><div class="item-time">13:30 - 16:30</div><div class="item-desc">參觀<strong>哥雷目露天博物館（Göreme OAM）</strong> <span class="price-tag">🎫 €20/人</span> <span class="drive-tag">🚗 2 km</span></div></div>
+          <div class="item"><div class="item-time">16:30 - 18:30</div><div class="item-desc">探訪烏奇沙城堡、**帕夏貝蘑菇谷（Paşabağ）**拍攝 <span class="price-tag">🎫 €12/人</span> <span class="drive-tag">🚗 15 km</span></div></div>
+          <div class="item"><div class="item-time">18:30 - 19:30</div><div class="item-desc">至 Sunset Point 欣賞日落晚霞，俯瞰哥雷目奇岩全景</div></div>
           <div class="item"><div class="item-time">19:30 - 21:30</div><div class="item-desc"><span class="meal-tag">🍽️ 晚餐預留</span>享用卡帕多奇亞道地火焰瓦罐燉牛肉（Testi Kebab）晚餐（2 小時）</div></div>
-          <div class="stay-tag">🏨 宿：卡帕多奇亞特色洞穴飯店</div>
+          <div class="stay-tag">🏨 宿：Caravanserai Inn Hotel</div>
         </div>
       </div>
 
@@ -359,7 +366,7 @@
           <div class="item"><div class="item-time">14:30 - 17:00</div><div class="item-desc">漫步<strong>伊赫拉拉綠意峽谷</strong>與塞利梅修道院 <span class="price-tag">🎫 €15/人</span> <span class="drive-tag">🚗 15 km</span></div></div>
           <div class="item"><div class="item-time">17:00 - 19:30</div><div class="item-desc">前往阿瓦諾斯陶藝小鎮（Avanos）體驗陶藝拉胚與河畔散步 <span class="drive-tag">🚗 20 km</span></div></div>
           <div class="item"><div class="item-time">19:30 - 21:30</div><div class="item-desc"><span class="meal-tag">🍽️ 晚餐預留</span>享用特色晚餐，整理行李準備次日啟程西行（2 小時）</div></div>
-          <div class="stay-tag">🏨 宿：卡帕多奇亞特色洞穴飯店</div>
+          <div class="stay-tag">🏨 宿：Caravanserai Inn Hotel</div>
         </div>
       </div>
 
@@ -372,7 +379,7 @@
         </div>
         <div class="item-list">
           <div class="item"><div class="item-time">05:00 - 08:30</div><div class="item-desc"><strong>清晨熱氣球升空體驗 🎈【候補窗口 3】</strong>：若前兩日已飛則在露台賞球拍照 <span class="balloon-tag">🎈 候補窗口 3</span></div></div>
-          <div class="item"><div class="item-time">08:30 - 09:30</div><div class="item-desc">享用飯店早餐並辦理退房，整裝出發</div></div>
+          <div class="item"><div class="item-time">08:30 - 09:30</div><div class="item-desc">享用 Caravanserai Inn 早餐並辦理退房，整裝出發</div></div>
           <div class="item"><div class="item-time">09:30 - 11:30</div><div class="item-desc"><strong>自駕第 1 段：哥雷目 ➔ 蘇丹哈尼</strong> <span class="drive-tag">🚗 車程約 1.5–2 小時 (150 km)</span></div></div>
           <div class="item"><div class="item-time">11:30 - 13:00</div><div class="item-desc"><span class="meal-tag">🍽️ 午餐預留</span><strong>中繼站：蘇丹哈尼古驛站</strong> <span class="price-tag">🎫 約 150 TL</span> 參觀並午餐（1.5 小時）</div></div>
           <div class="item"><div class="item-time">13:00 - 14:30</div><div class="item-desc"><strong>自駕第 2 段：蘇丹哈尼 ➔ 古都孔亞（Konya）</strong> <span class="drive-tag">🚗 車程約 1.5 小時 (110 km)</span></div></div>
@@ -387,18 +394,20 @@
       <div class="day-card">
         <div class="day-dot"></div>
         <div class="day-header">
-          <div class="day-title">Day 7 ｜ 9/25 (五) 孔亞 ➔ 埃爾迪爾湖 ➔ 溶洞 ➔ 棉花堡溫泉</div>
-          <div class="day-badge">330 km 湖區自駕</div>
+          <div class="day-title">Day 7 ｜ 9/25 (五) 希拉波利斯劇場 ➔ 棉堡白色石灰棚溫泉池泡湯</div>
+          <div class="day-badge">330 km・棉堡天然溫泉</div>
         </div>
         <div class="item-list">
           <div class="item"><div class="item-time">08:30 - 10:30</div><div class="item-desc"><strong>自駕第 1 段：孔亞 ➔ 埃爾迪爾湖（Eğirdir Lake）</strong> <span class="drive-tag">🚗 車程約 2 小時 (170 km)</span></div></div>
           <div class="item"><div class="item-time">10:30 - 12:30</div><div class="item-desc"><span class="meal-tag">🍽️ 午餐預留</span><strong>中繼站 1：埃爾迪爾湖畔</strong>：湖畔景觀餐廳午餐、喝茶漫步綠島（2 小時）</div></div>
           <div class="item"><div class="item-time">12:30 - 14:00</div><div class="item-desc"><strong>自駕第 2 段：埃爾迪爾湖 ➔ 卡卡利克溶洞</strong> <span class="drive-tag">🚗 車程約 1.5 小時 (130 km)</span></div></div>
           <div class="item"><div class="item-time">14:00 - 14:50</div><div class="item-desc"><strong>中繼站 2：卡卡利克地下棉花堡</strong> <span class="price-tag">🎫 約 80 TL</span>（停留 50 分鐘）</div></div>
-          <div class="item"><div class="item-time">14:50 - 15:30</div><div class="item-desc"><strong>自駕第 3 段：卡卡利克 ➔ 棉花堡飯店</strong> <span class="drive-tag">🚗 車程約 35 分 (30 km)</span></div></div>
-          <div class="item"><div class="item-time">15:30 - 19:00</div><div class="item-desc">遊覽<strong>棉花堡白色石灰棚梯田</strong>與<strong>希拉波利斯古城</strong> <span class="price-tag">🎫 €30/人</span></div></div>
-          <div class="item"><div class="item-time">19:00 - 21:30</div><div class="item-desc"><span class="meal-tag">🍽️ 晚宴預留</span>享用飯店豐盛晚餐，享受天然溫泉水療徹底放鬆（2.5 小時）</div></div>
-          <div class="stay-tag">🏨 宿：棉花堡溫泉度假飯店（當日自駕 330 km）</div>
+          <div class="item"><div class="item-time">14:50 - 15:30</div><div class="item-desc"><strong>自駕第 3 段：卡卡利克 ➔ 棉花堡景區 / 希拉波利斯</strong> <span class="drive-tag">🚗 車程約 35 分 (30 km)</span></div></div>
+          <div class="item"><div class="item-time">15:30 - 16:30</div><div class="item-desc">探索**希拉波利斯古羅馬大劇場（Hierapolis Theatre）** 參觀宏偉看台與俯瞰棉堡全景 <span class="price-tag">🎫 聯票內含</span></div></div>
+          <div class="item"><div class="item-time">16:30 - 19:00</div><div class="item-desc"><strong>棉花堡白色石灰棚天然溫泉池泡湯體驗 ♨️</strong>（赤足踏水、於梯田溫泉池中浸泡賞夕陽） <span class="spa-tag">♨️ 梯田溫泉泡湯</span> <span class="price-tag">🎫 €30/人</span></div></div>
+          <div class="item"><div class="item-time">19:00 - 19:30</div><div class="item-desc">前往**棉花堡卡亞溫泉飯店 Check-in**（兩間帶露台豪華房） <span class="drive-tag">🚗 車程 5 分</span></div></div>
+          <div class="item"><div class="item-time">19:30 - 21:30</div><div class="item-desc"><span class="meal-tag">🍽️ 晚宴預留</span>享用飯店一泊二食晚餐，體驗天然溫泉水療 SPA（2 小時）</div></div>
+          <div class="stay-tag">🏨 宿：棉花堡卡亞溫泉飯店（Pamukkale Kaya Termal Otel）</div>
         </div>
       </div>
 
@@ -410,8 +419,8 @@
           <div class="day-badge">雙遺產・愛琴海之夜</div>
         </div>
         <div class="item-list">
-          <div class="item"><div class="item-time">08:30 - 11:00</div><div class="item-desc"><strong>自駕第 1 段：棉花堡 ➔ 以弗所古城（Ephesus）</strong> <span class="drive-tag">🚗 車程約 2.5 小時 (185 km)</span></div></div>
-          <div class="item"><div class="item-time">11:00 - 14:30</div><div class="item-desc"><span class="meal-tag">🍽️ 午餐預留</span>深度參觀<strong>以弗所古城</strong>（圖書館、大劇場） <span class="price-tag">🎫 €40/人</span> ＋ 周邊享用午餐（3.5 小時）</div></div>
+          <div class="item"><div class="item-time">08:30 - 11:00</div><div class="item-desc">享用飯店早餐後退房出發 ➔ <strong>自駕第 1 段：棉花堡 ➔ 以弗所古城（Ephesus）</strong> <span class="drive-tag">🚗 車程約 2.5 小時 (185 km)</span></div></div>
+          <div class="item"><div class="item-time">11:00 - 14:30</div><div class="item-desc"><span class="meal-tag">🍽️ 午餐預留</span>深度參觀<strong>以弗所古城</strong>（圖書館、大劇場） <span class="price-tag">🎫 €40/人</span> ＋ 周邊午餐（3.5 小時）</div></div>
           <div class="item"><div class="item-time">14:30 - 16:00</div><div class="item-desc"><strong>自駕第 2 段：以弗所 ➔ 愛琴海大城伊茲米爾（Izmir）</strong> <span class="drive-tag">🚗 1 小時 15 分 (80 km)</span></div></div>
           <div class="item"><div class="item-time">16:00 - 19:00</div><div class="item-desc">飯店入住，於愛琴海海濱大道漫步看夕陽、參觀鐘樓廣場</div></div>
           <div class="item"><div class="item-time">19:00 - 21:30</div><div class="item-desc"><span class="meal-tag">🍽️ 晚宴預留</span>享用愛琴海新鮮現烤海鮮告別晚宴，整理全部行李（2.5 小時）</div></div>
@@ -495,7 +504,7 @@
           <div>9/21 23:55 起飛</div>
           <div>9/22 01:15 抵達</div>
         </div>
-        <div class="flight-detail"><strong>提早一晚直飛卡帕多奇亞</strong>，爭取 9/22–9/24 滿滿 3 個清晨熱氣球窗口！</div>
+        <div class="flight-detail"><strong>提早一晚直飛卡帕多奇亞</strong>，入住 Caravanserai Inn，爭取 9/22–9/24 滿滿 3 個清晨熱氣球窗口！</div>
       </div>
 
       <!-- 航班 4 -->
